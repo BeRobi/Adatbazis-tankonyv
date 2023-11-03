@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 2.5. Normalizálás </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="21_relci.html" class="withoutChild">2.1. Reláció</a></div>
+<div><a href="22_kulcsok.html" class="withoutChild">2.2. Kulcsok</a></div>
+<div><a href="23_jellsek.html" class="withChild">2.3. Jelölések</a></div>
+<div><a href="24_fggsgek.html" class="withChild">2.4. Függőségek</a></div>
+<div id="active" class="withoutChild">2.5. Normalizálás</div>
+<div><a href="26_adatbzis_tervezse.html" class="withoutChild">2.6. Adatbázis tervezése</a></div>
+<div><a href="27_adatbzis_rtelmezse.html" class="withChild">2.7. Adatbázis értelmezése</a></div>
+<div><a href="28_adatbzis_bvtse.html" class="withChild">2.8. Adatbázis bővítése</a></div>
+</div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">2.5. Normalizálás</p></div>
+<div class="objectivesIdevice" id="id28">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta28_49_4" class="block" style="display:block"><p>
+Ebben a fejezetben megfogalmazzuk
+az első 3 normálformát, mint a redundancia megszüntetésének
+algoritmizálható lépéseit. Az eljárást egy mintapéldán keresztül mutatjuk be,
+de a normalizálás készségszintű művelését a képzésben résztvevő hallgatóknak
+nem kell elérni. Itt azért kell az eljárással megismerkedni, hogy a már -
+esetleg mások által -megtervezett adatbázist is felismerjük, és képesek legyünk
+feldolgozni. 
+</p>
+
+</div><br/>
+</div>
+</div>
+</div>
+<div class="objectivesIdevice" id="id29">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta29_50_4" class="block" style="display:block">
+<p>
+<b>Normálforma: az egyed szerkezeti
+állapota.</b> 
+</p>
+<p>
+A
+normálformák egymásra épülnek, azaz normálformában lenni annyit jelent, hogy
+már az (n-1). formában benne van.
+</p>
+<p>
+Ha relációs
+modellben az emberekről a nevet, születési dátumot és a szakképzettségeket
+kellene tárolni, akkor egyelőre 3-oszlopos táblát képzelünk el, melyben a
+szakképzettség bizony többértékű tulajdonság lenne. 
+</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="width: 105px" align="center" valign="middle">
+			<p>
+			NÉV
+			</p>
+			</td>
+			<td style="width: 105px" align="center" valign="middle">
+			<p>
+			SZAKKÉPZETTSÉG
+			</p>
+			</td>
+			<td style="width: 105px" align="center" valign="middle">
+			<p>
+			SZÜLETÉSI DÁTUM
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 105px" align="center" valign="middle">
+			<p>
+			Nagy Zsolt
+			</p>
+			</td>
+			<td style="width: 105px" align="center" valign="middle">
+			<p>
+			gépészmérnök
+			</p>
+			</td>
+			<td style="width: 105px" align="center" valign="middle">
+			<p>
+			52.02.16
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 105px" align="center" valign="middle">
+			<p>
+			&nbsp;
+			</p>
+			</td>
+			<td style="width: 105px" align="center" valign="middle">
+			<p>
+			közgazdász
+			</p>
+			</td>
+			<td style="width: 105px" align="center" valign="middle">
+			<p>
+			&nbsp;
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 105px" align="center" valign="middle">
+			<p>
+			Kiss Pál
+			</p>
+			</td>
+			<td style="width: 105px" align="center" valign="middle">
+			<p>
+			lakatos
+			</p>
+			</td>
+			<td style="width: 105px" align="center" valign="middle">
+			<p>
+			58.08.08
+			</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+&nbsp;
+</p>
+<p>
+<b>R 0. normálformában van (0NF, vagy
+N1NF típusú), ha létezik olyan másodlagos attribútum, amely a kulcstól
+funkcionálisan független.</b> 
+</p>
+<p>
+Magyarul a
+táblázat ismétlődő ismeretet tartalmaz (esetünkben a szakképzettség, mely a név
+és születési dátum kettőstől nem függ, azaz nem egyértelmű a kulcs alapján).
+</p>
+<p>
+Gondolhatunk
+először olyan ostoba megoldásra, mely szerint a szakképzettség tulajdonságot
+olyan hosszúra (vagy változó hosszúságúra) definiáljuk a tábla létrehozásakor,
+hogy oda beférjen több szakképzettség is (valamilyen elválasztójelek között).
+Nos, ilyen esetben nemcsak az a gond, hogy esetleg mégis rövidnek bizonyul,
+hanem az, hogy nem tudunk benne majd gyorsan keresni. Például, a „Kik a
+közgazdászok?&quot; kérdésre minden sorban hosszasan kell majd rész-karakterláncokat
+ellenőrizni, hátha előfordul benne a keresett szó, pedig ha minden sorban csak
+egy szerepelne, akkor arra érdemes lenne lerendezni, hogy felező módszerrel
+lehessen benne keresni. 
+</p>
+<p>
+Gondolhatunk
+még rettenetesebb megoldásra is: mintegy soremeléssel az új sorban csak a
+következő szakképzettséget töltjük ki az előző sor személyéről. De a
+személyekről nem egyszerre viszik be az összes szakképzettséget, mert esetleg
+később szereznek újabbakat, vagyis nem működhet a <i>lásd előző</i> módszere. Arról nem beszélve, hogy adatainkat több
+szempont szerint szeretnénk
+rendezni, hogy majd gyorskereshessünk. Milyen szörnyű lenne egy név szerinti
+rendezésben egymás alatt a sok-sok csupa szóköz név, melyek mellett a nem első
+szakképzettségekről már nem lehetne tudni, hogy kihez tartoznak. 
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>R 1. normálformájú (1NF típusú), ha
+minden másodlagos tulajdonság funkcionálisan függ a kulcstól.</b>
+</p>
+<p>
+Magyarul a
+táblázat minden sorában pontosan egy attribútumérték lehet minden oszlopban.
+(Ez nem azt jelenti, hogy kell: vagyis azokat a tulajdonságokat, amelyek nem
+kötelezők - mint a hajszín -, nem kell kitölteni.)
+</p>
+<p>
+<b> </b>
+</p>
+<p>
+<b>Az előző példa 1NF-ben: </b>
+</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td valign="top" width="128">
+			<p>
+			<b>NÉV</b>
+			</p>
+			</td>
+			<td valign="top" width="180">
+			<p>
+			<b>SZAKKÉPZETTSÉG</b>
+			</p>
+			</td>
+			<td valign="top" width="174">
+			<p>
+			<b>SZÜLETÉSI DÁTUM</b>
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" width="128">
+			<p>
+			Nagy Zsolt
+			</p>
+			</td>
+			<td valign="top" width="180">
+			<p>
+			gépészmérnök
+			</p>
+			</td>
+			<td valign="top" width="174">
+			<p>
+			52.02.16
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" width="128">
+			<p>
+			Nagy Zsolt
+			</p>
+			</td>
+			<td valign="top" width="180">
+			<p>
+			közgazdász
+			</p>
+			</td>
+			<td valign="top" width="174">
+			<p>
+			52.02.16
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" width="128">
+			<p>
+			Kiss Pál
+			</p>
+			</td>
+			<td valign="top" width="180">
+			<p>
+			lakatos
+			</p>
+			</td>
+			<td valign="top" width="174">
+			<p>
+			58.08.08
+			</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+&nbsp;
+</p>
+<p>
+<b>R 
+2. normálformájú (2NF típusú), ha 1-es normálformában van, és minden
+másodlagos attribútuma a reláció bármely kulcsától teljesen függ.</b> 
+</p>
+<p>
+Tehát nincs
+benne részleges függés. 
+</p>
+<p>
+Az előző
+fejezetben tisztáztuk, hogy csak azok a tulajdonságok maradhatnak egy táblában,
+amelyek a kulcstól teljesen függnek, ugyanis a részleges függés redundanciát
+okoz. Cél, hogy minden tulajdonság olyan táblába kerüljön, amelynek kulcsától
+teljesen függ.
+</p>
+<p>
+<b> </b>
+</p>
+<p>
+<font color="#008000"><b>Megjegyzések </b></font>
+</p>
+<ul>
+	<li><font color="#008000">Ha az R kulcsa egyetlen attribútumból áll,
+	akkor máris 2NF típusú. Ugyanis a kulcsnak nincs valódi
+	részhalmaza, amitől függni lehetne.</font>
+	</li>
+	<li><font color="#008000">Ha nincsen R-ben másodlagos attribútum,
+	akkor úgyis 2NF típusú. Ugyanis nincsenek leírók, amik
+	valamelyike a kulcstól részlegesen függhetne.</font><font color="#008000"> <br />
+	</font></li>
+</ul>
+<p>
+<font color="#008000"><b>Példa</b>: a BIZONYLATFEJ és BIZONYLATTÉTEL esete</font>
+</p>
+<p>
+<font color="#008000">Általában
+mindenféle bizonylat, ami több tételt is tartalmazhat, mindig fej- és
+tétel-adatokra fog bomlani, ugyanis vannak olyan tulajdonságok, amik csak a
+bizonylat számától függnek teljesen, és vannak azok, amelyek egyértelmű
+meghatározásához a bizonylatszám mellett legalább a tételsorszámra szükség van.
+(Rendelés-mintánkban a tételt a rendszám és cikkszám azonosította.)</font>
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>R 3. normálformájú (3NF típusú), ha
+2-es normálformában van, és egyetlen másodlagos attribútuma sem függ
+tranzitíven valamely kulcstól.</b>
+</p>
+<p>
+Tehát nincs benne tranzitív
+függés.
+</p>
+<p>
+Az előző
+fejezetben tisztáztuk, hogy csak azok a tulajdonságok maradhatnak egy táblában,
+amelyek egy másik leíró tulajdonságtól sem függnek, ugyanis a tranzitív függés
+redundanciát okoz. Cél, hogy minden tulajdonság olyan táblába kerüljön,
+amelynek csak a kulcsától függ. 
+</p>
+<p>
+<b>Példa</b>: a BIZONYLATFEJ és PARTNER esete
+</p>
+<p>
+Általában
+mindenféle bizonylat pontosan egy partnertől érkezik, és az a partner több
+bizonylatot is küldhet. A partner sok törzsadata mellett bizonyára kap egy
+kódot nálunk, aminek valóban be kell kerülni a bizonylatfejbe, de a többi
+törzsadatnak nem. A partner kódja a partner táblában lesz kulcs, ami mellett a
+többi törzsadatot tároljuk helyesen.<b> </b>
+</p>
+<p>
+<b> </b>
+</p>
+<p>
+<font color="#008000"><b>Megjegyzések </b></font>
+</p>
+<p>
+<font color="#008000">1.   
+Nézzünk
+példát a csupakulcs-esetre: </font>
+</p>
+<p>
+<font color="#008000">ÜGYELET {<u>ki</u>, <u>mikor</u>}</font>
+</p>
+<p>
+<font color="#008000">Itt a tábla csak kulcsszerepű tulajdonságokat
+tartalmaz (ki mikor jött be ügyeletet tartani), tehát 3NF-ben van. Valószínűleg
+a <i>ki</i> egy dolgozókódra mutat, a <i>mikor</i>  pedig egy dátum. Ha naponta több
+műszak lenne, akkor a műszak sorszámát is tárolni kellene, de kérdés, hogy a
+kulcs részeként, vagy leíróként. Ha a feladat olyan helyre készül, ahol egy
+dolgozó egy napon csak egy műszakban ügyelhet, akkor leíróként tároljuk, hányadik műszakban jelent meg, egyébként pedig kulcsszerepben.</font>
+</p>
+<p>
+<font color="#008000">2.   
+Nézzünk
+példát a több kulcsjelölt esetére: </font>
+</p>
+<p>
+<font color="#008000">SZÁMLATÉTEL {<i><u>szlaszám</u></i>, <u>sorszám</u>, <i>cikkszám</i>, mennyi}</font>
+</p>
+<p>
+<font color="#008000">Itt a táblának több kulcsa is van: az aláhúzással jelölt
+számlaszám és sorszám (ez az általános), de sokszor előfordul, hogy a dőlt
+betűvel jelzett számlaszám és cikkszám (miután egy számlán egy cikk csak
+egyszer szerepelhet). Igazság szerint (ha poroszosan letároljuk a sorszámokat
+is), dönteni kell, melyik legyen az elsődleges kulcs, amit automatikus
+megszorításként kezel majd egy
+adatbázis-kezelő rendszer, majd gondoskodni kell a másik egyediségéről is egy
+újabb megszorításban.</font>
+</p>
+<p>
+<b> </b>
+</p>
+<p>
+<b>Normalizálás (normálforma dekompozíció): </b>
+</p>
+<p>
+Az eljárás,
+amelyben a kedvezőtlen normálformájú egyedet lebontjuk több kívánt normálformájú egyedre.
+</p>
+<p>
+Célja: a tárolási és
+karbantartási káosz megszüntetése veszteségmentesen.<b> </b>
+</p>
+<p>
+Eszerint a
+redundancia csökkentése érdekében normalizálunk, de úgy, hogy a funkcionális
+függőségeket ne veszítsük el. Az eljárást az első példán (Rendelés) mutatjuk
+be, és bebizonyítjuk, hogy a redundancia meghagyása anomáliákat okozott volna
+az adatbázis feldolgozásában. 
+</p>
+<p>
+&nbsp;
+</p>
+</div><br/>
+</div>
+</div>
+</div>
+<div class="objectivesIdevice" id="id30">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle">Kulcsszavak a fejezetben</span>
+<div class="iDevice_inner">
+<div id="ta30_51_4" class="block" style="display:block">1NF,
+2NF, 3NF, normalizálás
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="244_tesztkrdsek.html">&laquo; Előző</a> | <a href="26_adatbzis_tervezse.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

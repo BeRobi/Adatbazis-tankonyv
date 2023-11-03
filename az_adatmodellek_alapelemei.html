@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> Az adatmodellek alapelemei </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="11_az_adatfeldolgozs_szemlletnek_fejldse.html" class="withoutChild">1.1. Az adatfeldolgozás szemléletének fejlődése</a></div>
+<div><a href="12_adat_informci.html" class="withoutChild">1.2. Adat, információ</a></div>
+<div><a href="13_adatmodellek_alapelemek.html" class="withChild">1.3. Adatmodellek, alapelemek</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="adatmodellprblkozsok.html" class="withoutChild">Adatmodell-próbálkozások</a></div>
+<div id="active" class="withoutChild">Az adatmodellek alapelemei</div>
+<div><a href="a_kapcsolatok_fajti_adatmodelltl_fggetlenl.html" class="withoutChild">A kapcsolatok fajtái adatmodelltől függetlenül</a></div>
+<div><a href="hrom_adatmodell.html" class="withoutChild">Három adatmodell</a></div>
+</div>
+</div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">Az adatmodellek alapelemei</p></div>
+<div class="objectivesIdevice" id="id8">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta8_29_4" class="block" style="display:block"><p>
+<b>Az adatmodellek alapelemei</b>
+</p>
+<img src="image001.gif" height="47" width="106" /> <img src="image002.gif" height="49" width="190" /> <img src="image003.gif" height="52" width="163" />
+<p>
+<b>Az egyed: </b>minden olyan dolog (objektum), ami minden más dologtól (objektumtól)
+megkülönböztethető.
+</p>
+<p>
+Előzetes tanulmányokra támaszkodva az egyedet nevezzük
+fájlnak.
+</p>
+<p>
+Az egyed egy
+konkrét értéke: <b>előfordulás</b>.
+</p>
+<p>
+Például: DOLGOZÓ, AUTÓ, BETEG, ÜGYFÉL, CIKK,
+BIZONYLAT... 
+</p>
+<p>
+Tehát én, mint
+Kupcsikné Fitus Ilona egy előfordulás leszek a Számalk Rt. Dolgozó egyedében
+vagy egy balesetet követően az egyik kórház Beteg-egyedében. Már most érezzük,
+hogy a két egyedben más-más jellemzőimmel fogok szerepelni.
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>A tulajdonság: </b>az egyed belső szerkezete.
+</p>
+<p>
+Az egyedeket
+tulajdonságokkal (attribútumokkal) írjuk le.
+</p>
+<p>
+A
+tulajdonság értékeivel egy adott egyed konkrét értékét határozzuk meg.
+</p>
+<p>
+A dolgozó
+nevű egyed tulajdonságai például: név, lakcím, dolgozószám, fizetés, végzettség, osztály,...
+</p>
+<p>
+A beteg nevű
+egyed tulajdonságai: név,
+életkor, TAJ-szám, diagnózis,...
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+Amennyiben egy tulajdonság vagy tulajdonságok egy
+csoportja egyértelműen
+meghatározza, hogy az egyed melyik értékéről van szó, akkor ezeket együtt <b>kulcs</b>nak nevezzük. 
+</p>
+<p>
+Pl. hallgatókód a HALLGATOban
+</p>
+<p>
+A hallgató
+jelentkezéskor előírás szerint megadja azt az 5 adatát, amely őt egyértelműen
+azonosítja. Ezek: neve, lakcíme, születési helye, ideje, anyja neve. Miután ez
+az 5 tulajdonság nagyon hosszú kulcsnak, ezért a nyilvántartásba vételkor
+azonnal generálnak neki egy rövid azonosítószámot, amit hallgatókódnak
+nevezhetnek el. 
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>A kapcsolat: </b>az egyed külső szerkezete.
+</p>
+<p>
+A kapcsolat
+az egyedek közötti viszony.
+</p>
+<p>
+A konkrét
+értékek a kapcsolat <b>előfordulásai<i>.</i></b>
+</p>
+<p>
+Példa: 
+</p>
+<p>
+VEVŐ-RENDELÉS, SZÁMLA-CIKK ...
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+A példákban már az egyedek
+neve is sugallja a kapcsolatok fajtáját: 1 vevőhöz több rendelés tartozhat,
+több számlán szerepelhet 1 bizonyos cikk. Egyelőre csak sejtjük, hogy azért van
+több egyedünk az adatbázisban, mert ugyanazt az adatot feleslegesen többször
+nem fogjuk tárolni. Egy vevőnek van rengeteg olyan tulajdonsága, ami
+egyértelmű: a törzsadatai (pl. név, születési hely, idő, különféle
+azonosítószám stb.) és aktuális adatai (mint pillanatnyi lakcíme, telefonja,
+utolsó vásárlásának dátuma stb.). Ezen kívül vannak a forgalmi adatai, melyek
+minden rendelése alkalmával tárolásra kerülnek (pl. rendelés dátuma, fizetési
+határidő, összérték stb.). Ha belegondolunk, hogy egy rendelés több tételt is
+tartalmazhat, akkor minden egyes rendelési adathoz több rendeléstétel is
+tartozhat, vagyis új egyed szükséges, melyben a konkrét rendelésbeli cikk és az
+abból megrendelt mennyiség kerül tárolásra. 
+</p>
+<p>
+Később meglátjuk, hogy milyen
+algoritmus szerint járnak el az egyedek kialakításánál relációs modell esetén. 
+</p>
+
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="adatmodellprblkozsok.html">&laquo; Előző</a> | <a href="a_kapcsolatok_fajti_adatmodelltl_fggetlenl.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 3.2.  Megszorítások </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="31_a_hatrozatlan_rtk.html" class="withoutChild">3.1. A határozatlan érték</a></div>
+<div id="active" class="withChild">3.2.  Megszorítások</div>
+<div id="subnav" class="withoutChild">
+<div><a href="321_az_egyedi_kulcsok_s_az_elsdleges_kulcs_megadsa.html" class="withoutChild">3.2.1. Az egyedi kulcsok és az elsődleges kulcs megadása</a></div>
+<div><a href="322_az_idegen_kulcsok_definilsa.html" class="withoutChild">3.2.2. Az idegen kulcsok definiálása</a></div>
+<div><a href="323_tulajdonsgrtkek_korltozsa.html" class="withoutChild">3.2.3. Tulajdonság-értékek korlátozása</a></div>
+<div><a href="324_nll_megszortsok.html" class="withoutChild">3.2.4. Önálló megszorítások</a></div>
+</div>
+<div><a href="33_mintaplda.html" class="withChild">3.3. Mintapélda</a></div>
+<div><a href="34_tesztkrdsek.html" class="withoutChild">3.4. Tesztkérdések</a></div>
+</div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">3.2.  Megszorítások</p></div>
+<div class="objectivesIdevice" id="id43">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta43_64_4" class="block" style="display:block">
+<p>
+A megszorítás fogalma után a
+megszorítások csoportosítását ismerjük meg. Itt fogjuk megtanulni, hogy az
+adatbázisban hol és hogyan lehet gondoskodni bizonyos feltételek érvényre juttatásáról. 
+</p>
+<p>
+Az adatbázis kezelésének
+ellentmondásmentes ügyvitel szerint kell működniük, ezért az adatokra és az
+eseményekre vonatkozó szabályokat
+érvényesíteni kell az adatbázisban.
+Azért, hogy semmilyen adatkezelési esemény
+ne vezessen az adatok következetlenné válásához, az összes előírást és
+korlátozást be kell építeni az adatbázisba. A beépítésre került szabályt
+megszorításnak nevezzük. 
+</p>
+<p>
+A biztonságos adatbáziskezelés tehát a megszorításokkal
+körülvett adatbázis kezelését jelenti. A szabályok és adatfolyamatok együttesét
+üzleti logika fedőnéven is emlegetik.
+</p>
+<p>
+Az SQL nyelv napjainkban már olyan lehetőségekkel
+rendelkezik, melyek segítségével programozás nélkül érvényesíthetjük
+az előírt szabályokat, vagyis megszorításokkal is bővíthetjük az adatbázist. 
+</p>
+<p>
+Idén a
+megszorításokat elegendő verbálisan - ugyanakkor logikailag helyesen
+-megfogalmazni; a köv. részben próbálkozhatunk mindezek SQL-beli megadásával. 
+</p>
+<p>
+A megszorítások logikai értékű
+függvények, amelyektől elvárjuk,
+hogy igazak legyenek. Az olyan módosításokat, amelyek a megszorításokat
+megsértik, a rendszer visszautasítja. 
+</p>
+<p>
+A megszorítások lényege
+a hivatkozási épség és az adatösszefüggések felügyelete minden adatkezelés
+alkalmával. 
+</p>
+<p>
+A hivatkozási épség megőrzése az egyedi kulcsok és külső
+kulcsok felállításával indul, de arról is gondoskodni kell, mi történjen a kulcsérték módosítása / törlése esetén a külső kulcs értékével. Ezen kívül a rejtett
+kapcsolatban álló táblák esetén is
+léteznek olyan hivatkozások, amiket nem lehet külső kulcs megadásával
+biztosítani. 
+</p>
+<p>
+Az adatösszefüggések közé tartoznak 
+</p>
+<ul class="unIndentedList">
+	<li>
+	az olyan egyszerű feltételek, mint adott mező
+	nagyobb nullánál, vagy a mező nem lehet NULL értékű, </li>
+	<li>
+	meg az olyan bonyolult feltételek is, mint adott
+	mező kisebb, mint egy aktuális -, akár több táblából - számított érték.</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p>
+Valójában már a mezők adattípusának meghatározásával
+korlátozásokat állítunk fel, de ezeket az alapvető szabályokat nem nevezzük
+megszorításoknak. 
+</p>
+<p>
+Az olyan egyszerű feltételek, amelyek egy tábla egy sorát
+érintik, könnyen beépíthető megszorítások. Ilyen esetben a táblába történő beszúrást ill. módosítást utasítja vissza a
+rendszer, ha a megszorítás nem érvényes. 
+</p>
+<p>
+Az olyan megszorítások, amelyek több sort vagy több táblát
+érintenek, a szó igazi értelmében összetettek. Ezek beépítése egy táblába
+helytelen, ui. csak ebbe a táblába való felvitel / módosítás váltja ki a
+megszorítás ellenőrzését. Ha ilyen megszorítást egyszerűen csak abba az egy
+táblába építenénk be, melynek
+valamely mezőjére fogalmaztuk meg, akkor a feltételben érintett másik sor vagy
+másik tábla sorának esetleges törlése esetén
+a feltétel elromolhat. Tehát önálló megszorításként
+érdemes megadni, ha azt szeretnénk,
+hogy az összes érintett táblában történő
+karbantartás esetén érvényben maradjon. 
+</p>
+<p>
+A megszorításokat a következő sorrendben célszerű
+felállítani:
+</p>
+<ul class="unIndentedList">
+	<li>
+	kulcsok megadása</li>
+	<li>
+	tulajdonság-értékekre vonatkozó korlátozások</li>
+	<li>
+	önálló megszorítások</li>
+</ul>
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="31_a_hatrozatlan_rtk.html">&laquo; Előző</a> | <a href="321_az_egyedi_kulcsok_s_az_elsdleges_kulcs_megadsa.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

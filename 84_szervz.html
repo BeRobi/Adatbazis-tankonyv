@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 8.4. Szervíz </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="81_tanfolyamszervezs.html" class="withoutChild">8.1. Tanfolyamszervezés</a></div>
+<div><a href="82_raktr.html" class="withoutChild">8.2. Raktár</a></div>
+<div><a href="83_szlloda.html" class="withoutChild">8.3. Szálloda</a></div>
+<div id="active" class="withoutChild">8.4. Szervíz</div>
+<div><a href="85_zldsges.html" class="withoutChild">8.5. Zöldséges</a></div>
+<div><a href="86_knyvtr.html" class="withoutChild">8.6. Könyvtár</a></div>
+</div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">8.4. Szervíz</p></div>
+<div class="objectivesIdevice" id="id78">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta78_36_4" class="block" style="display:block"><p>
+<b>Ismertetés</b>
+</p>
+<p>
+Márkaboltok egyetlen szervizében fogadjuk a reklamációkat. A
+márkaboltok különböző cikkeket tartanak, melyekből konkrét gyártási számmal
+rendelkező darabokat adnak el. Az eladásokról kell tehát tudnia a szervíznek. A vevő akár többször is reklamálhat, ui. javítást, cserét
+vagy visszafizetést kérhet. 
+</p>
+<p>
+Ezt olvasva, mondatonként
+vázoljuk az adatbázis tábláit: 
+</p>
+<p>
+„Mindegyik márkabolt különböző cikkeket tart.&quot;<br />
+<b>CIKK</b> {<u>cikksz</u>,
+megnev, garancia, egysár} 
+</p>
+<p>
+„melyekből konkrét gyártási számmal rendelkező darabokat ad
+el.&quot;<br />
+<b>ELADÁS</b> {<u>cikksz</u>,
+<u>gyártsz</u>, kelt} 
+</p>
+<p>
+„a vevő&quot;<br />
+<b>VEVŐ</b> {<u>vkód</u>,
+név, cím}<br />
+<b>ELADÁS</b> {<u>cikksz</u>,
+<u>gyártsz</u>, kelt, <i>vkód</i>} módosult 
+</p>
+<p>
+&quot;többször is reklamálhat (igények)&quot;<br />
+<b>REKLAM</b> {<u>cikksz</u>,
+<u>gyártsz</u>, <u>dátum</u>, igény,
+telj} 
+</p>
+<p>
+Az igény legyen 1 karakter, a teljesítés dátuma pedig később kerül
+bejegyzésre. 
+</p>
+<p>
+Vegyük észre, hogy minden boltnak és a szervíznek ugyanaz a
+cikktörzse, melyben az eszmei cikk garanciaideje (hány hónap) és egységára is
+található. A konkrét cikk az, amit eladnak, amit a szervíz fogadhat,
+csak egyetlen vevőnek tudnak eladni, ugyanis. 2 egyforma vasalónak csak a
+cikkszáma azonos, a gyártási számuk már nem. A boltok természetesen saját készleteiket is nyilvántartják,
+és eladáskor bizonylatot készítenek, de a szervíz csak az eladás tényét akarja látni. Vevő-törzsre szükség van a
+kiszállításhoz, az értesítési cím miatt. A vevő konkrét cikkét a garanciaidőn belül megreklamálhatja,
+pl. többször javíttatja, cserélteti, majd visszafizetteti. Lehet, hogy a
+szervízben javítással indul a dolog, és ott tesznek javaslatot cserére, vagy a
+sorozatos hibák láttán a visszafizetésre. Valószínűleg erről bizonylatot írnak
+és a vevő a konkrét márkaboltban intézi ezeket. 
+</p>
+<p>
+<!--[if gte vml 1]>
+<![endif]--><img src="image013.1.jpg" v:shapes="_x0000_i1025" height="228" width="357" /><br />
+ 
+</p>
+<p>
+Egyelőre itt a fenti adatbázis felállítása elegendő. Aki a
+szervíz reklamációs ügyvitelét ellátja, annak gondoskodni kell a munkák
+elvégzéséről, bizonylataik előállításáról és a bolti eladások fogadásáról.
+Mindezek nyilvántartására itt nem térünk ki. 
+</p>
+<p>
+Három, eléggé gyakori dolgot
+szeretnénk a meglévő adatbázishoz
+kapcsolni azzal a céllal, hogy az új táblák értelmezése rögződjön olvasóinkban. 
+</p>
+<p>
+1.    Csere
+esetén tárolni kell, melyik cikkért
+milyen dátummal melyiket adták. Konkrét cikket csak ugyanolyan cikkre lehet
+cserélni. 
+</p>
+<p>
+<b>CSERE</b>
+{<u>cikksz, gyártsz</u>, kelt, új_gyártsz} 
+</p>
+<p>
+Vegyük észre, hogy ez a tábla 1:1
+kapcsolatban van az eladással, hiszen az eladott cikkek részhalmazáról van szó.
+(Minden eladott cikket bizonyára nem fognak becserélni, hogy a szervíz 1
+táblában tartsa őket, egy eladott cikket pedig csak egyszer lehet becserélni.)
+Ilyen esetben az eladás a szülő
+tábla, a csere pedig a gyerek;
+tehát a csere kulcsa egyúttal külső kulcs és az eladásra mutat. Másrészt egy cserére szánt új
+cikk ugyancsak egyszer vehet részt a cserében, tehát a csere további egyedi kulcsa
+a cikksz és új_gyártsz páros is. pl. „A
+mai napon a régebben vásárolt vasalómat (gyártási száma 122333) új vasalóra
+cserélték (gyártási száma 233444).&quot;
+</p>
+<p>
+<u>Az
+esemény hatása:</u> 1 új sor a CSERE-táblában. 
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+2.    Az
+egységes cikktörzsben az egységár néha változik, leginkább megnő. Tudni kell a
+garanciaidőkre eső aktuális árakról is. 
+</p>
+<p>
+Ahelyett, hogy minden eladáskor
+rögzítenénk a tétel mellé a
+pillanatnyi árat (ez egy zöldséges esetében elfogadható, mert sűrűn változtat
+eladási árat), itt az árváltozások tárolását oldjuk meg.<b> </b>
+</p>
+<p>
+<b>ÁRVÁLT</b>
+{<u>cikksz, mióta</u>, új_ár} 
+</p>
+<p>
+Úgy érezzük, ez tiszta megoldás a
+pillanatnyi árak felkutatására. Ekkor a cikktörzsben feleslegesnek tűnik már az
+aktuális ár tárolása. (Bár SQL-beli lekérdezése adott cikk adott napi árának
+nem is olyan egyszerű.) De nézzük meg, mi a teendő egy induló adatbázisban.
+Nos, az összes cikket az induló árával fel kell venni az árváltozásba! (És még
+nem beszéltünk a sűrű eladások alkalmával tett mindenkori lekérdezések
+végrehajtásáról...) 
+</p>
+<p>
+Vagyis az árváltozás kicsit
+módosul: 
+</p>
+<p>
+<b>ÁRVÁLT </b>{<u>cikksz,
+mikor</u>, régi_ár} 
+</p>
+<p>
+Ekkor a CIKK-törzsben szigorúan
+ott van az aktuális új ár. A régi árak visszakeresése most is ugyanannyi
+munkával oldható meg, az induló cikktörzs cikkei pedig nem kerülnek induláskor
+ide. Eladáskor azonnal kiolvasható az aktuális ár a törzsből. 
+</p>
+<p>
+pl. „A
+mai naptól a vasaló (cikkszáma 12345/6666) ára felmegy; 6500 Ft helyett 7200 Ft lesz.&quot; <u>Az
+esemény hatása:</u> 1 új sor az ÁRVÁLT táblában (12345/6666, 2003.08.18.,
+6500) és a cikkszám sorának módosítása a CIKKben (egysár = 7200) 
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+3.    Az
+egyes márkaboltoktól a bizonylatolt eladásokat kapjuk meg. 
+</p>
+<p>
+<b>SZÁMLA</b>
+{<u>szlaszám</u>, dátum, vkód, végösszeg}
+</p>
+<p>
+<b>SZ_TÉTEL</b>
+{<u>cikksz, gyártsz,</u> szlaszám} 
+</p>
+<p>
+A számlatétel nem szokványos,
+hiszen a számlaszámon belül felesleges sorszámozott tételként felsorolni a konkrét cikkeket, miután
+mindegyikből csak 1 darab létezik, tehát az kizárólag egy számlára kerülhet
+fel. pl. „Ma
+vettem 2 egyforma hajszárítót és 1 vasalót egy számlára.&quot;
+</p>
+<p>
+<u>Az
+esemény hatása:</u> 1 új sor a SZÁMLA-táblában és 3 új sor a SZ_TÉTELben (a 3
+sorban egyforma a szlaszám és a 3 sor közül 2-ben ugyanaz a cikkszám).
+</p>
+<p>
+Feltételezzük,
+hogy a vevő és a 2-féle cikk már létezik a saját törzsében. 
+</p>
+
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="83_szlloda.html">&laquo; Előző</a> | <a href="85_zldsges.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

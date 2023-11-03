@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 3.3.1. Oktatás </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="31_a_hatrozatlan_rtk.html" class="withoutChild">3.1. A határozatlan érték</a></div>
+<div><a href="32__megszortsok.html" class="withChild">3.2.  Megszorítások</a></div>
+<div><a href="33_mintaplda.html" class="withChild">3.3. Mintapélda</a></div>
+<div id="subnav" class="withoutChild">
+<div id="active" class="withoutChild">3.3.1. Oktatás</div>
+</div>
+<div><a href="34_tesztkrdsek.html" class="withoutChild">3.4. Tesztkérdések</a></div>
+</div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">3.3.1. Oktatás</p></div>
+<div class="objectivesIdevice" id="id50">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta50_71_4" class="block" style="display:block">
+<p>
+<b>A rendszer ismertetése</b>
+</p>
+<p>
+Egy iskola folyó tanévében a diákok és tanárok viszonyát
+tartjuk nyilván értelemszerű törzsadatokkal az órarend kialakításáig. Az egyes tantárgyakat osztályoknak tanítják a tanárok, egy
+osztályba sok diák jár. Egy tanár több tárgyat is taníthat, és fordítva. Ugyanannak
+az osztálynak több tárgyat, illetve egy tárgyat több osztálynak is taníthat
+ugyanaz a tanár. A nap és óra
+sorszámozott típusú (1-5: a napok, 1-8: az órák), a tantárgy kódja beszédes
+(pl. MAT4: negyedikes matematika). 
+</p>
+<p>
+Kellenek a törzsek, a tanítás ténye
+és maga az órarend. 
+</p>
+<p>
+<b>DIÁK</b> {<u>azonosító</u>,
+név, osztály, ...}<br />
+<b>TANÁR</b> {<u>kód</u>,
+név, szoba}<br />
+<b>TANTÁRGY</b> {<u>tant</u>,
+megnevezés, heti_óraszám}<br />
+<b>TANÍT</b> {<u>osztály</u>,
+<u>tant</u>, kód}<br />
+<b>ÓRAREND</b> {<u>osztály</u>,
+<u>nap</u>, <u>óra</u>, tant}
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>Kapcsolatok</b> 
+</p>
+<p>
+<!--[if gte vml 1]>
+<![endif]-->
+</p>
+<div style="text-align: center">
+<img src="image017.gif" v:shapes="_x0000_i1025" height="357" width="547" />
+</div>
+<div style="text-align: center">
+</div>
+<div style="text-align: center">
+15. ábra <br />
+</div>
+<p>
+&nbsp;
+</p>
+<p>
+<i>Gyakorlás céljából <a href="oktatas.mdb">töltse le az Access-adatbázist</a>! </i>
+</p>
+<i></i>
+<p>
+<i>Figyelje meg, hogy az Access nem egy vonallal húzza be a
+kapcsolatot az összetett külső kulcs felől!</i>
+</p>
+<p>
+Azonnal látjuk, hogy ebben az adatbázis-kezdeményben nincs osztály-törzs, és az egyes évfolyamok
+tematikája nincs tárolva. Ha az iskolatitkár fegyelmezetten indítja a tanévet,
+és azt kell berögzíteni, akkor ez az adatbázis megfelelő. 
+</p>
+<p>
+<b>Követelmények:</b>
+</p>
+<ul class="unIndentedList">
+	<li>
+	egy osztályba sok diák járhat</li>
+	<li>
+	egy tanár több osztályt taníthat</li>
+	<li>
+	egy tanár több tárgyat taníthat</li>
+	<li>
+	egy tanár egy osztálynak több tárgyat taníthat</li>
+	<li>
+	egy tanár egy tárgyat több osztálynak taníthat</li>
+	<li>
+	az órarend mind az osztály, mind a tanár
+	szempontjából ütközésmentes kell legyen</li>
+	<li>
+	a heti óraszám korlátozása</li>
+</ul>
+<p>
+<b>Fontos megjegyzés:</b>
+</p>
+<p>
+Az azonosító felépítése szervezői feladat, de tudnunk kell,
+hogy egy olyan beszédes azonosító kiosztása, amely függ az osztálytól, nem jó
+(pl. osztály+sorszám). Ilyen esetben azoknak, akik nem bukotak meg, évente új azonosítót kellene osztani, ami
+rossz, mert kényelmetlen. Ilyen
+esetben lehet a beiratkozás éve+sorszám, vagy egy abszolut sorszám az
+azonosító.
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+A követelmények
+pontosítása után a következő szabályok beépítése kívánatos:
+</p>
+<ol>
+	<li>létező
+	tantárgyat csak létező tanár taníthat</li>
+	<li>tanítani
+	csak olyan osztálynak lehet, amelybe legalább 1 diák jár</li>
+	<li>egy
+	osztálynak egy tárgyat egy tanár tanítja az adott tanévben</li>
+	<li>egy
+	osztálynak adott nap adott órájában egy tárgyat taníthatnak</li>
+	<li>az
+	órarend a tanár szempontjából is ütközésmentes (azaz a tárgyat tanító tanár
+	egyszerre nem taníthat több helyen)</li>
+	<li>adott
+	osztálynak adott tárgyat a tárgy heti óraszámában feltüntetett alkalommal kell
+	szerepeltetni az órarendben</li>
+	<li>a
+	tárgy azonosítójának felépítése feleljen meg az előírásnak</li>
+	<li>minden
+	tantárgynak a heti óraszáma 1 és 10 közötti érték lehet</li>
+	<li>minden
+	osztálynak legyen egy osztályfőnöke, de minden tanár legfeljebb egy osztálynak
+	lehessen a főnöke </li>
+</ol>
+<p>
+Nem megoldott viszont:
+</p>
+<ul>
+	<li>a párhuzamos osztályok tanmenetének fixálása </li>
+</ul>
+<p>
+Ezért itt két dolog nem lerendezett:
+</p>
+<ul>
+	<li>az osztály értékének
+	szabályozása az adatbevitelnél. </li>
+</ul>
+<p>
+Ez a diák esetében lehetséges (pl. csak számjegy és
+betűkarakter a megengedett, vagy felsorolt konkrét osztályok közül való
+választás), de a tanít-tábla esetében azt kell leszabályozni, hogy csak a DIÁKban előforduló osztályhoz
+lehessen sort felvinni. Semmi garancia nincs arra, hogy minden osztályhoz
+valóban felvittek legalább 1 diákot.
+</p>
+<ul>
+	<li>az évfolyam leválasztása az osztályból. </li>
+</ul>
+<p>
+Az egyes évfolyamok egyforma tematikája nincs tárolva, tehát
+előfordulhat, hogy a TANÍT
+ellenőrzése után kimarad az egyik évfolyam minden párhuzamos osztályából
+valamelyik tárgy. 
+</p>
+<p>
+Tehát csak valóban fegyelmezett előmunkálatok után rögzített
+tanít-tábla esetén maradhat meg ez
+az adatbázis. 
+</p>
+<p>
+Mivel képzésünkben erőn felül (de megtérülően) foglalkozunk
+az adatbázistervezéssel, a 2. problémát (évfolyam-tematika) meg sem oldjuk. Az
+1. probléma pedig nemcsak az osztálytörzs létrehozásával küszöbölhető ki, ha
+végiggondoljuk a rendszer ügyvitelét. Valószínűleg egy önálló funkcióként, nem pedig az órarendkészítési feladatok szintjén veszik fel az új diákokat (beiratkozás, új
+osztályok indítása). Bizonyára a tanévzárás is ilyen, hiszen akkor legalább a
+nem bukottakat tovább kell léptetni (osztályukban az évfolyam számát
+megnövelni). Tehát bízhatunk abban, hogy az összes diák az aktuális osztályával
+szerepel az adatbázisban ezen ügyviteli funkció idején.
+Az órarendkészítés tehát a tanévindítási funkció alatt elhelyezhető feladat,
+melynek ugyancsak van lezárása, ami után már nem módosítható.
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>Megszorítások</b> 
+</p>
+<p>
+Jelen adatbázis-kezdemény
+kulcsainak és külső kulcsainak beépítése automatikus ellenőrzéseket állít be az
+adatbázisban, de bonyolult szabályok figyelését csak önálló megszorítások
+megadásával érünk el. 
+</p>
+<p>
+Nézzük, hogyan gondoskodhatunk a fenti 9 szabály betartásáról: 
+</p>
+<ol>
+	<li>a
+	TANÍT külső kulcsa a tant és a kód</li>
+	<li>a
+	TANÍT osztály előfordul a DIÁK osztályai között</li>
+	<li>a
+	TANÍT kulcsa osztály+tant</li>
+	<li>az
+	ÓRAREND kulcsa osztály+nap+óra</li>
+	<li>naponta,
+	óránként és kódonként 0 vagy 1 sor van az ÓRARENDben</li>
+	<li>osztályonként és tantárgyanként
+	legfeljebb annyi sor van az ÓRARENDben, ahány a tárgy heti óraszáma</li>
+	<li>a
+	tantárgy azonosítójának formátuma 4 karakteren: betű, betű, betű, számjegy, és
+	a számjegy korlátozható</li>
+	<li>pl.
+	0&lt; heti óraszám &lt; 11</li>
+	<li>osztályfőnöki
+	óra bevezetésével oldjuk meg a problémát</li>
+</ol>
+
+A kulcsok és külső kulcsok megadását {1),3),4)} egy
+táblaszerkezetben már ismerjük, SQL-megvalósítását a következő részben
+tanuljuk, mint ahogy a többi egyszerű vagy összetett megszorítás
+SQL-megfogalmazását is. 
+</p>
+<p>
+A 8) egy egyszerű feltétel a TANTÁRGY heti óraszámára
+</p>
+<p>
+A 7) egyszerű, mezőre vonatkozó feltétel, mely a
+TANTÁRGY-bővítésnél kell, hogy érvényesüljön.
+Az összes többi tábla tant-mezője külső kulcs, tehát csak olyan lehet, ami a
+törzsben létezik. 
+</p>
+<p>
+Ezzel szemben a 2) önálló szabály kell legyen, ui. a TANÍT
+osztálya nem külső kulcs. Ha csak a TANÍT bővítés esetén
+ellenőriznénk, hogy az osztály csak
+olyan lehet, ami a DIÁKban létezik, akkor a DIÁKból való törlésekkel
+előfordulhat, hogy a feltétel elromlik; szemben a külső kulcsos hivatkozások
+megőrzésének biztosításával. 
+</p>
+<p>
+Az 5) biztosítása jó helyen lesz az ÓRAREND táblában, ui.
+csak annak bővítése / módosítása esetén
+kell ellenőrizni. Törléskor nem romolhat el a feltétel. Figyelem: jelen esetben
+az, hogy az ÓRAREND külső kulcsa az osztály+tant, önmagában nem elég a
+megszorításhoz, viszont szükséges a feltétel megfogalmazásához. Megj. ha a
+TANÍTból törlünk, akkor az itteni külső kulcs miatt lesz annak feltétele, hogy
+az innen is törlődjön.
+</p>
+<p>
+A 6) beállítása gondoskodik minden ÓRAREND-bővítés/módosítás
+esetén arról, hogy ne ütemezzenek le
+több alkalmat, mint az előírt heti óraszám. Az órarendkészítés hosszabb
+folyamat, az ilyen ügyviteli feladat ellátása nem a menüpontból való kilépéssel
+fejeződik be, tehát az órarendkészítés lezárásának (őnálló funkció) feltétele
+lehet csak, hogy minden osztály összes tantárgya pontosan annyi sorban
+forduljon elő, ahány a heti óraszáma.
+</p>
+<p>
+Mivel általában
+heti egy, órarendben elhelyezett osztályfőnöki órára van igény, az osztályfőnök
+szerepe {9)} ebben az adatbázisban ún. osztályfőnöki óra tantárggyal
+megoldható. Nem a tanárban kell tárolni, hogy ő melyik osztálynak a főnöke
+(beleértve, hogy ez lehet nem kitöltött érték), mégcsak nem is egy lehetséges
+osztálytörzsben, hogy ki az osztály osztályfőnöke, hanem tantárgyként kell felfogni. Legyen az OFO rövidnév az
+osztályfőnöki óra azonosítója, melyet a TANÍTban tárolva az osztályfőnökség tényét rögzítjük. Külön kell az ÓRAREND-bővítéskor
+ellenőrizni, hogy az adott tanár csak egy osztálynak „taníthassa&quot; ezt a
+„tárgyat&quot;. (Néhány szabály fennállása ellenőrizhető a lekérdezések
+futtatásával.) 
+</p>
+<p>
+Ezek után nem nehéz megválaszolni az olyan kérdéseket, hogy
+mi annak a feltétele, hogy valamely táblába felvegyünk / valamely táblában
+módosítsunk / valamely táblából töröljünk egy sort. (A hivatkozási épség
+ellenőrzésére mód van a csatolt adatbázisban.)
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>Rejtett kapcsolatok tárgyalása</b> 
+</p>
+<p>
+A
+diák nem kapcsolódik tisztán másik táblához. 
+</p>
+<p>
+Az osztály csak
+egy metszet-tulajdonság, de jelen esetben egy lekérdezés alkalmával a DIÁK és a
+TANÍT osztályon keresztül való összekapcsolása jelentéssel bír: minden diák
+minden tárgya szerepel majd benne azzal a tanárral, aki neki azt tanítja. (ld.
+SQL-lekérdezés) 
+</p>
+<p>
+Ha az
+évvégi osztályzatokat tárolnánk, akkor az egyes diákok tárgyankénti osztályzatát kellene „lerakni&quot; pl. egy
+bizonyítvány-táblában. Ennek kulcsa csak akkor lehet az azonosító és tant<i>,</i> ha
+az előző évfolyamokat nem kell látni, vagyis a bukottak jegyei nem mondanak
+ellent a kulcsnak. 
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+Ilyen bizonyítvány-tábla érdekes viszonyban áll a
+tanít-táblával:
+</p>
+<p>
+<b>BIZONYÍTVÁNY</b> {<u>azonosító,
+tant</u>, jegy}<br />
+<b>TANÍT</b> {<u>osztály,
+tant</u>, kód}
+</p>
+<p>
+Itt a tant metszet-tulajdonságra alapozott összekapcsolás
+nem hordozna jelentést, hiszen a tárgyat tanuló összes diák „összeállna&quot; a
+tárgyat tanuló összes osztállyal, akkor is, ha ő nem oda jár. Ekkor azt kell
+észrevenni, hogy a DIÁK-BIZONYÍTVÁNY helyes összekapcsolása áll kapcsolatban a
+TANÍT táblával (ez viszont nem jelölhető semmilyen eszközben). Lekérdezésnél
+kell észnél lenni, hogy a 3 tábla csak együtt alkalmas az összekapcsolásra (ld.
+SQL-lekérdezés).
+</p>
+<p>
+Tehát a Bizonyítvány sorainak felvitele alkalmával nem
+elegendő ellenőrizni, hogy létező diák és létező tantárgy mellé egy 1-5 közötti
+jegyet rögzítsünk, hanem azt is, hogy a diák azt a tárgyat tanulta-e
+(tanították-e neki az osztályában).
+</p>
+<p>
+&nbsp;
+</p>
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="33_mintaplda.html">&laquo; Előző</a> | <a href="34_tesztkrdsek.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

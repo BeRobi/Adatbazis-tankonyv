@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 8.5. Zöldséges </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="81_tanfolyamszervezs.html" class="withoutChild">8.1. Tanfolyamszervezés</a></div>
+<div><a href="82_raktr.html" class="withoutChild">8.2. Raktár</a></div>
+<div><a href="83_szlloda.html" class="withoutChild">8.3. Szálloda</a></div>
+<div><a href="84_szervz.html" class="withoutChild">8.4. Szervíz</a></div>
+<div id="active" class="withoutChild">8.5. Zöldséges</div>
+<div><a href="86_knyvtr.html" class="withoutChild">8.6. Könyvtár</a></div>
+</div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">8.5. Zöldséges</p></div>
+<div class="objectivesIdevice" id="id79">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta79_38_4" class="block" style="display:block"><p>
+<b>Ismertetés</b>
+</p>
+<p>
+Képzeljük el egy zöldséges forgalmának nyilvántartását. A
+zöldséges naponta többször elad, beszerez vagy selejtez az áruiból, és minden
+kimutatása ezen háromféle forgalom szerint bontott. Biztos van áru- és
+szállítótörzse, de a vevőket nem regisztrálja.
+</p>
+<p>
+<b> </b>
+</p>
+<p>
+<b>Az adatbázis</b>
+</p>
+<p>
+<b>ÁRU</b> {<u>cikkszám</u>,
+név, elad_ár, besz_ár, készlet, mért_egys, minimum}
+</p>
+<p>
+<b>SZÁLLITÓ</b> {<u>kód</u>,
+...} 
+</p>
+<p>
+Az ÁRUban kétféle ár szerepel, a beszerzési ill. az eladási
+ár. Bármely cikk esetén minden újabb
+beszerzésnél megváltozhat a készlethez tartozó súlyozott átlagár, melynek
+hatására a kereskedő átírhatja az egész készlet eladási árát is. Mivel az ilyen
+árváltozás zöldség-gyümölcs esetén
+gyakori (akár naponta többször is előfordulhat), ezért a pillanatnyi árat
+eladás ill. selejtezés esetén inkább
+eltesszük. 
+</p>
+<p>
+Nézzük meg, mit kell letárolni a 3 típusú forgalom
+bejegyzésekor:
+</p>
+<p>
+<b>ELADÁS</b> {mikor, miből,
+mennyit, mennyiért(elad_ár)}
+</p>
+<p>
+<b>BESZERZÉS</b> {mikor, miből,
+mennyit, mennyiért(input), kitől}
+</p>
+<p>
+<b>SELEJTEZÉS</b> {mikor,
+miből, mennyit, mennyiért(besz_ár)} 
+</p>
+<p>
+Vegyük észre, hogy a 3 tábla szerkezete szinte megegyezik, a
+beszerzésben van eggyel több oszlop. Ilyenkor lemondunk az alegyedek
+létrehozásáról, készítünk egy közös forgalom-táblát, melyben minden oszlopot
+megtartunk, legfeljebb nem mindegyiket kell majd kitölteni, de akkor jegyezni
+kell, milyen típusú forgalomról szól az aktuális tétel. 
+</p>
+<p>
+<b>FORGALOM</b> {típus, kelt,
+cikksz, menny, ár, kód} 
+</p>
+<p>
+A típus 1 katakteren lehet E / B / S (mint eladás /
+beszerzés / selejtezés). A szállító kódját csak beszerzés esetén
+kell kitölteni.<br />
+Figyelem: az ár típustól függően: elad_ár / input / besz_ár. 
+</p>
+<p>
+A Forgalomnak nincs kulcsa. A tulajdonságok semmilyen
+kombinációja nem jó kulcsnak. Ilyenkor generálhatunk minden tételnek egy
+azonosítót, de bizonylatolás esetén
+a fej-tábla sorai kapjanak bizonylatszámot, és a tétel-tábla sorait
+bizonylatszámon belül sorszámozzuk majd. Sorszámozzuk, mert ilyen forgalomnál elképzelhető, hogy egy
+bizonylaton belül több tétel is ugyanolyan áruról szól! 
+</p>
+<p>
+Végül azért leírjuk, mely tulajdonságok fognak a fejbe, és melyek a tételekbe kerülni:
+</p>
+<p>
+<b>FORG_FEJ</b> {<u>bizszám</u>,
+típus, dátum, kód, összesen}
+</p>
+<p>
+<b>FORG_TÉT</b> {<u>bizszám,
+sorszám</u>, cikkszám, menny, ár} 
+</p>
+<p>
+A FORG_FEJ.összesen egy számított mező; a hozzá tartozó
+tételek menny és ár mezői szorzatának az összege. Mivel pénzmozgás
+van mögötte, akár kerekítve, szokás tárolni. 
+</p>
+<p>
+Itt az ideje archiválásról gondoskodni ilyen méretű forgalom
+(tételszám) esetén. Érdemes például
+havonta zárni, és a havi forgalom-táblákat átnevezve elrakni (akár másik
+könyvtárba, hogy csak lekérdezhetők legyenek és már nem karbantarthatók). A forg_fej ill.
+forg_tét táblaneveket hosszabbítsuk meg a hónap (vagy év.hónap)
+2-karakteres (vagy 4-karakteres) jelével. 
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>Kapcsolati ábra</b>
+</p>
+<img src="1.1.jpg" height="176" width="565" /> <br />
+<p>
+<b>Mintasorok</b>
+</p>
+<p>
+<img src="2.1.jpg" height="339" width="587" /> 
+</p>
+<p>
+<img src="3.1.jpg" height="322" width="413" />
+</p>
+<p>
+<img src="4.1.jpg" height="581" width="422" /> 
+</p>
+<br />
+<p>
+Olvassunk ki eseményeket
+a mintasorokból!<b> </b>
+</p>
+<p>
+<b><a href="Pm_zold.pdf">Megoldás</a> </b>
+</p>
+
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="84_szervz.html">&laquo; Előző</a> | <a href="86_knyvtr.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

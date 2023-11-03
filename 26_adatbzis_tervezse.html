@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 2.6. Adatbázis tervezése </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="21_relci.html" class="withoutChild">2.1. Reláció</a></div>
+<div><a href="22_kulcsok.html" class="withoutChild">2.2. Kulcsok</a></div>
+<div><a href="23_jellsek.html" class="withChild">2.3. Jelölések</a></div>
+<div><a href="24_fggsgek.html" class="withChild">2.4. Függőségek</a></div>
+<div><a href="25_normalizls.html" class="withoutChild">2.5. Normalizálás</a></div>
+<div id="active" class="withoutChild">2.6. Adatbázis tervezése</div>
+<div><a href="27_adatbzis_rtelmezse.html" class="withChild">2.7. Adatbázis értelmezése</a></div>
+<div><a href="28_adatbzis_bvtse.html" class="withChild">2.8. Adatbázis bővítése</a></div>
+</div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">2.6. Adatbázis tervezése</p></div>
+<div class="objectivesIdevice" id="id32">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> Rendelés</span>
+<div class="iDevice_inner">
+<div id="ta32_52_4" class="block" style="display:block">
+<p>
+Első adatbázisunkat
+egyetlen reláció alkotta, a 11 tulajdonságból álló Rendelés-tábla. 
+</p>
+<p>
+<b>RENDELÉS {<u>rendszám</u>, vkód, vevőnév,
+vevőcím, kelt, határidő, <u>cikkszám</u>, cikknév, egysár, rendmenny,
+összérték}</b><br />
+ 
+</p>
+<p>
+A kulcs
+definíciója alapján tudjuk, hogy a kulcs egyértelműen meghatározza az összes
+tulajdonság értékét, azaz minden tulajdonság funkcionálisan függ a kulcstól:
+</p>
+<p>
+{rendszám, cikkszám} → {vkód, vevőnév, vevőcím, kelt,
+határidő, cikknév, egysár, rendmenny, összérték}
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+A tulajdonságok között fennálló eredeti funkcionális függőségek az
+ügyvitel szerint (az előző fejezetben már felsoroltuk):
+</p>
+<p>
+<b>{rendszám} </b>→<b> {vkód, vevőnév, vevőcím, kelt, határidő, összérték}<br />
+{vkód} </b>→<b> {vevőnév, vevőcím}<br />
+{cikkszám} </b>→<b> {cikknév, egysár}<br />
+{rendszám, cikkszám} </b>→<b> {rendmenny}</b> 
+</p>
+<p>
+A normalizálás 1. lépése -, miszerint a táblának van kulcsa -
+teljesül; minden sor önálló bejegyzésként
+kerül rögzítésre, A 11 tulajdonság kitöltésével redundáns táblát kapunk, mert
+több tulajdonság sem teljesen függ a kulcstól. 
+</p>
+<p>
+A 2. lépés tehát a kulcstól való részleges
+függőség megszüntetése. Összetett kulcsunk mellett nem maradhatnak azok a
+tulajdonságok, melyek csak a kulcs valamelyik részétől függnek (vkód, vevőnév, vevőcím, kelt, határidő,
+összérték, cikknév, egysár); új táblába kell kerülniük olyan kulccsal, melytől
+teljesen függnek:
+</p>
+<p>
+<b>
+ÚJ_RENDELÉS {rendszám,
+cikkszám} → {rendmenny}<br />
+TÁBLA1 {rendszám} → {vkód, vevőnév, vevőcím, kelt,
+határidő, összérték}<br />
+TÁBLA2 {cikkszám} → {cikknév, egysár}</b>
+</p>
+<p>
+Ezen teljes függőségek
+alapján 3 táblánk lesz az 1 helyett; mindháromnak beszédes nevet fogunk adni,
+ha végeztünk. (Vegyük észre, hogy az összetett kulcs tagjai ilyen esetben külső
+kulcsokká válnak.) 
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+A 3. lépésben a kulcstól való tranzitív függőséget kell
+megszüntetni. Jelen esetben ilyen csak a 2. teljes függőségben található; mert
+a leírók között függőség áll fenn:
+</p>
+<p>
+{vkód} → {vevőnév, vevőcím}<br />
+Emiatt van
+tranzitivitás: {rendszám} → {vkód} → {vevőnév, vevőcím}<br />
+Ilyen
+esetben azokat a leírókat, amelyek más leírótól függnek, új táblába kell
+átrakni azzal a kulccsal, melytől közvetlenül függnek:<br />
+TÁBLA3 {vkód} → {vevőnév, vevőcím}<br />
+ÚJ_TÁBLA1 {rendszám} → {vkód, kelt, határidő, összérték}<br />
+(Vegyük
+észre, hogy az a leíró, melyen keresztül jött létre a tranzitív függés, külső
+kulccsá válik ilyen esetben.)
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+Így lesz 4
+táblánk az eredeti 1 helyett a kapott 4 teljes és nem tranzitív függőség
+alapján:
+</p>
+<p>
+<b>TÁBLA2 {cikkszám} </b>→<b> {cikknév, egysár}<br />
+ÚJ_RENDELÉS {rendszám, cikkszám} </b>→<b> {rendmenny}<br />
+ÚJ_TÁBLA1 {rendszám} </b>→<b> {vkód, kelt, határidő, összérték}<br />
+TÁBLA3 {vkód} </b>→<b> {vevőnév, vevőcím}<br />
+</b>
+</p>
+<p>
+A táblanevek
+lehetnének például a fenti
+sorrendnek megfelelően <b>CIKK, RENDELÉS_TÉTEL,
+RENDELÉS_FEJ, VEVŐ</b>:<b> </b>
+</p>
+<p>
+<b>CIKK {<u>cikkszám</u>,
+cikknév, egysár}<br />
+RENDELÉS_TÉTEL
+{<u>rendszám</u>, <u>cikkszám</u>, rendmenny}<br />
+RENDELÉS_FEJ
+{<u>rendszám</u>, vkód, kelt, határidő, összérték}<br />
+VEVŐ {<u>vkód</u>,
+vevőnév, vevőcím}</b><br />
+ 
+</p>
+<p>
+Végül lássuk
+be, hogy a függőségek
+megmaradtak az adatbázisban, mégpedig az egyes táblákon belül, mivel „a kulcs egyértelműen
+meghatározza a tábla összes tulajdonságát&quot;. Tehát, ha normalizált adatbázist látunk,
+akkor a függőségi családot kiolvashatjuk az egyes táblákból. Ezen függőségekből továbbiakat tudunk bármikor
+származtatni a
+funkcionális függőségekre vonatkozó szabályok szerint (az előző fejezetben ezt
+tettük). 
+</p>
+<p>
+<b>Kapcsolatok </b>
+</p>
+<p>
+RENDELÉS_TÉTEL → CIKK<br />
+RENDELÉS_TÉTEL → RENDELÉS_FEJ<br />
+RENDELÉS_FEJ → VEVŐ<br />
+Látható, hogy a RENDELÉS_TÉTEL<b> </b>kulcsa az összes hozzátartozó
+tulajdonság-értéket eléri a többi táblából. 
+</p>
+<p>
+Amennyiben 1 RENDELÉS-táblánk maradt volna, akkor 
+</p>
+<ul>
+	<li>nem tudnánk kivitelezni egy új cikk vagy vevő felvitelét
+	mindaddig, amíg rendelés nincs hozzá,</li>
+	<li>több sorban is el kellene végezni egyetlen cikk vagy
+	vevő törzsadatának, esetleg egy rendelésfejbeli adatnak a módosítását,</li>
+	<li>törzsadatot veszthetünk, amikor törlünk egy olyan
+	rendelés-tételt, ami egy új vevőről vagy cikkről szólt.</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p align="left">
+<b>|rendsz|vkód </b>|<b>vevőnév |vevőcím|kelt |határidő|cikkszá |cikknév |egysár|rendm|összért|</b>
+</p>
+<p>
+<b><!--[if gte vml 1]>
+<![endif]--><img src="image011.jpg" v:shapes="_x0000_i1025" height="64" width="602" /></b><br />
+ 
+</p>
+<p>
+<font color="#008000"><b>Megjegyzés</b></font>
+</p>
+<p>
+<font color="#008000">A harmadik
+normálformán túl már nem algoritmizálhatók a teendők; csak az elmélyült
+tervezői agy képes a redundancia csökkentését optimalizálni a funkcionális
+függőségek megtartása mellett. Azért nem tanulunk magasabb normálformákról és
+annak érdekében több speciális függőségről, mert azok elérése nem lehet mindig
+cél. Halassy Béla szerint az adatbázis-tervezést jól csinálni csak
+megszállottan lehet és hivatásként
+szabad űzni.</font>
+</p>
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="25_normalizls.html">&laquo; Előző</a> | <a href="27_adatbzis_rtelmezse.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 2.8.1. Étterem </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="21_relci.html" class="withoutChild">2.1. Reláció</a></div>
+<div><a href="22_kulcsok.html" class="withoutChild">2.2. Kulcsok</a></div>
+<div><a href="23_jellsek.html" class="withChild">2.3. Jelölések</a></div>
+<div><a href="24_fggsgek.html" class="withChild">2.4. Függőségek</a></div>
+<div><a href="25_normalizls.html" class="withoutChild">2.5. Normalizálás</a></div>
+<div><a href="26_adatbzis_tervezse.html" class="withoutChild">2.6. Adatbázis tervezése</a></div>
+<div><a href="27_adatbzis_rtelmezse.html" class="withChild">2.7. Adatbázis értelmezése</a></div>
+<div><a href="28_adatbzis_bvtse.html" class="withChild">2.8. Adatbázis bővítése</a></div>
+<div id="subnav" class="withChild">
+<div id="active" class="withChild">2.8.1. Étterem</div>
+<div id="subnav" class="withoutChild">
+<div><a href="az_adatbzis_bvtse.html" class="withoutChild">Az adatbázis bővítése</a></div>
+<div><a href="utsz.html" class="withoutChild">Utószó</a></div>
+</div>
+</div>
+</div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">2.8.1. Étterem</p></div>
+<div class="objectivesIdevice" id="id37">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta37_57_4" class="block" style="display:block">
+<p>
+<b>A rendszer nagyvonalú ismertetése:</b>
+</p>
+<p>
+Az étteremben különféle ételeket és italokat rendelhetünk,
+amelyeket bizonyos nyersanyagokból, recept szerint készítenek el. A fogyasztás
+végén számla alapján fizetünk.
+</p>
+<p>
+Az adatbázis hétköznapi, az ügyvitel egyszerű, mindenki
+számára elképzelhető. 
+</p>
+<p>
+<!--[if gte vml 1]>
+<![endif]-->
+</p>
+<div style="text-align: center">
+<img src="image013.jpg" v:shapes="_x0000_i1025" height="222" width="330" />
+</div>
+<div style="text-align: center">
+ 
+</div>
+<div style="text-align: center">
+11. ábra <br />
+</div>
+<p>
+&nbsp;
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+ANYAG tábla a nyersanyagok törzse; pl. '12345',
+'rétesliszt', 120, 'kg' 
+</p>
+<p>
+ÉTLAP tábla az ételek törzse; pl. '122333', 'Vadas marha',
+750, 'K' 
+</p>
+<p>
+FAJTA tábla az ételek fajtájának szótára; pl. 'F',
+'frissensült' 
+</p>
+<p>
+RECEPT tábla az ÉTLAP és ANYAG kapcsolótáblája, az ételekbe
+beépülő anyagok mennyiségével; pl. '555556', '54321', 0.25 
+</p>
+<p>
+SZÁMLAFEJ tábla a számlák törzse; pl. '2003/3334',
+03.05.23., 4560 
+</p>
+<p>
+SZÁMLATÉTEL tábla az ÉTLAP és SZÁMLAFEJ kapcsolótáblája, a
+számlákon szereplő ételek mennyiségével; pl. '2003/1224', '444456', 2 
+</p>
+<p>
+A kapcsolatok ügyesen kiolvashatók az ábrából. (Minden nyíl
+a külső kulcsról mutat az egyedi kulcsra (bekarikázva), azaz a sokból az
+egybe.) A kapcsolatok nyelvtani megfelelője:
+</p>
+<ul>
+	<li>egy fajtára több étel is készülhet</li>
+	<li>egy étel több anyagból épülhet fel recept
+	szerint</li>
+	<li>egy anyag több ételbe beépülhet</li>
+	<li>egy számlán több ételt rendelhettek ( itt nem
+	adagot, hanem ételféleséget)</li>
+	<li>egy étel több számlán is szerepelhet</li>
+</ul>
+</div><br/>
+</div>
+</div>
+</div>
+<div class="objectivesIdevice" id="id38">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta38_58_4" class="block" style="display:block">
+<p>
+<b>Az ügyvitel folyamatainak áttekintése:</b>
+</p>
+<p>
+Itt &quot;végigzongorázzuk&quot; a folyamatokat (mint pl.
+étlapkészítés, termékdefiniálás, rendelésfelvétel, számlaadás,
+forgalomkimutatás stb.), miközben technikai adatokkal toldjuk meg az
+adatállományainkat. 
+</p>
+<p>
+Ilyenek pl.
+</p>
+<ol>
+	<li>az ÉTLAP <b>van</b> logikai mezeje,
+	hiszen ettől függ, mely étel-ital van éppen étlapon. </li>
+	<li>a SZÁMLAFEJ <b>kifizet</b> logikai
+	mezeje, hiszen ennek állapota utal arra, hogy ki van-e már fizetve a számla. </li>
+</ol>
+<ul class="unIndentedList">
+	<li>
+	Termékdefiniáláskor például nemcsak az ÉTLAP
+	bővül egy sorral, hanem a RECEPT is akár több sorral, ill. az ANYAG, ha eddig
+	még ilyen nem szerepelt. A FAJTA ugyancsak bővülhet, ha új ételtípust
+	definiálunk.</li>
+	<li>
+	Az étlapkészítés valójában egy lekérdezés, amit
+	segít majd egy szezontól / szakácstól függő beállítás (van-e).</li>
+	<li>
+	Egy rendelés felvétele nem egy funkció, hiszen a
+	rendelést elkezdik, folytathatják és kifizetik. Felvitelkor egy sor születik a
+	SZÁMLAFEJben és legalább egy sor a SZÁMLATÉTELben. A számlaszám generált azonosító,
+	a végösszeg csak a kifizetéskor kerül be. Ha a vendég folytatja a rendelését,
+	akkor meg kell találni a nyitott számlák között az övét, illetve régi tételének módosítását vagy új tétel felvitelét
+	végrehajtani. Ezért legalább a számlák lezárását (kifizetve_e) be kell jegyezni
+	az adatbázisba.</li>
+	<li>
+	A számlaadás valójában egy számla lezárását
+	jelenti: a végösszeg kiszámítását követő sor-módosítást és egy tételes
+	lekérdezés nyomtatását.</li>
+	<li>
+	A forgalomkimutatás valamilyen statisztika
+	lekérése, mindig egy lekérdezés eredményét
+	jeleníti meg. Pl. napi árbevétel, legjobban fogyó ételek, legsikeresebb
+	ételfajták, stb. </li>
+</ul>
+<p>
+Ne felejtsük el, hogy az adatbázis épségének megőrzése a hivatkozási- és adatintegritás
+betartásával történik (Ilyenek a
+külső kulcsok értékei vagy a mennyiségek korlátozása nagyobb, mint nullára.).
+Ezeket minden adatbáziskezelő automatikusan betartja, ha gondoskodunk róla a megszorítások definiálásakor. (Megszorításokat ld.
+később)
+</p>
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="28_adatbzis_bvtse.html">&laquo; Előző</a> | <a href="az_adatbzis_bvtse.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

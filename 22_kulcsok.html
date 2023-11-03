@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 2.2. Kulcsok </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="21_relci.html" class="withoutChild">2.1. Reláció</a></div>
+<div id="active" class="withoutChild">2.2. Kulcsok</div>
+<div><a href="23_jellsek.html" class="withChild">2.3. Jelölések</a></div>
+<div><a href="24_fggsgek.html" class="withChild">2.4. Függőségek</a></div>
+<div><a href="25_normalizls.html" class="withoutChild">2.5. Normalizálás</a></div>
+<div><a href="26_adatbzis_tervezse.html" class="withoutChild">2.6. Adatbázis tervezése</a></div>
+<div><a href="27_adatbzis_rtelmezse.html" class="withChild">2.7. Adatbázis értelmezése</a></div>
+<div><a href="28_adatbzis_bvtse.html" class="withChild">2.8. Adatbázis bővítése</a></div>
+</div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">2.2. Kulcsok</p></div>
+<div class="objectivesIdevice" id="id16">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta16_38_4" class="block" style="display:block"><p>
+Ebben a fejezetben a relációs adatbázisban
+fennálló kapcsolatokat kell tisztázni az egyes táblák elméleti kulcsának és
+külső kulcsának segítségével. Meg kell tanulni az SQL nyelv használata
+céljából, hogy két tábla csak akkor áll kapcsolatban, ha az egyik külső kulcsként tartalmazza a másik kulcsát. Az adatbázisban
+való jártasság érdekében jól kell használni az egyszerű és összetett kulcs,
+illetve a kulcsszerepű és másodlagos tulajdonság fogalmát.
+</p>
+
+</div><br/>
+</div>
+</div>
+</div>
+<div class="objectivesIdevice" id="id17">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta17_39_4" class="block" style="display:block">
+<p>
+Az
+általános alapfogalmak bevezetésénél
+már volt szó a különleges tulajdonságról vagy tulajdonságcsoportról, mely
+egyértelműen meghatározza az egyed-előfordulást. Relációs adatmodell esetén is (amikor az egyed tábla), annak valamely
+tulajdonsága, vagy tulajdonságcsoportja képes lehet a tábla sorát
+beazonosítani. 
+</p>
+<p>
+<b>A reláció kulcsa </b>
+</p>
+<p>
+<b>Az A attribútumhalmaz
+egy K részhalmaza kulcs, ha</b>
+</p>
+<ol>
+	<li><b></b><b>a K
+	értékei az R reláció mindegyik sorát egyértelműen meghatározzák,</b></li>
+	<li><b>de ha
+	egyetlen attribútumot is elhagyunk K-ból, az 1. már nem teljesül.</b> 
+	</li>
+</ol>
+<p>
+Aláhúzással
+jelöljük a reláció kulcsát.
+</p>
+<p>
+Pl.: A
+rendelési bizonylatok egyetlen táblájának, a RENDELÉSnek a kulcsa: {rendszám,
+cikkszám} halmaz; valószínűleg azért, mert egy bizonylat egyetlen tételét a
+rendelésszám és cikkszám egyértelműen meghatározza. 
+</p>
+<p>
+Figyelem,
+az ilyen információt a rendszerfejlesztés megbízójától szerezheti meg a
+fejlesztő, de legalább tőle kap megerősítést, amikor tapasztalatból ezt
+megsejti. 
+</p>
+<p>
+Nézzük
+csak meg: ha ismerjük a rendszám és a
+cikkszám értékét, akkor az összes többi tulajdonság értékét ismerjük. Ez
+a kettő egyértelműen meghatározza a tábla többi oszlopának értékét, beleértve a
+rendelt mennyiséget is. 
+</p>
+<p>
+Az is
+nyilvánvaló, hogy a kulcsértéknek ezek után csak egyszer szabad előfordulnia a
+relációban. Ebből az is következik, hogy a kulcsot kötelezően ki kell tölteni.
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>A kulcsok csoportosítása:</b>
+</p>
+<ul>
+	<li><b>egyszerű kulcs: </b>egyetlen attribútumból áll</li>
+	<li><b>összetett kulcs: </b>egyébként<i> <br />
+	</i></li>
+</ul>
+<p>
+kulcsszerepű
+attribútum: a kulcsnak a része<br />
+másodlagos
+attribútum vagy leíró: egyébként 
+</p>
+<p>
+Például:
+</p>
+<p>
+A {személyiszám} egyszerű
+kulcs<br />
+a DOLGOZÓ {<u>személyszám</u>,
+név, fizetés} relációban, 
+</p>
+<p>
+A {személyiszám,
+hónap} összetett kulcs<br />
+a TÖRLESZTÉS
+{<u>személyszám, hónap</u>, összeg}-ben. 
+</p>
+<p>
+Az
+összetett kulcs (halmazelméleti indokból) tagjainak sorrendje nem számít. Tehát
+az elméleti kulcs fogalmát ne keverjük a technikai kulcskifejezés fogalmával,
+ahol már fontos a sorrend, mert rendezési szempont. (A Törlesztés
+kulcskifejezése lehet személyszám és azon belül hónap, vagy fordítva, hónapon
+belül személyszám. De az egyik mellett döntve biztos létrehoznánk egy
+duplikált, nem egyedi kulcsot is a hónapra vagy a személyszámra, mert arra is
+kell majd keresni.)
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+A táblák közti kapcsolat szempontjából lényeges
+fogalom a külső vagy idegen kulcs.
+</p>
+<p>
+<b>Külső/idegen kulcs : </b>az a
+tulajdonság (vagy több tulajdonság együttese), amely egy másik relációnak a
+kulcsa.<b> </b>
+</p>
+<p>
+Pl. a <i>személyszám</i> a Törlesztésben külső kulcs. 
+</p>
+<p>
+A külső kulcs
+</p>
+<ul class="unIndentedList">
+	<li>
+	lehet
+	kulcsszerepű, de lehet másodlagos tulajdonság is</li>
+	<li>
+	a kapcsolat
+	hordozója</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p>
+Fogadjuk el, hogy relációs
+modellben:
+</p>
+<p>
+<b>Két reláció csak akkor áll
+kapcsolatban egymással, ha az egyik külső kulcsként
+tartalmazza a másik kulcsát.</b>
+</p>
+<p>
+Ez azt
+jelenti, hogy relációs modellben, amikor a redundancia megszüntetése miatt több
+kisebb táblára fogjuk bontani az adatbázisunkat, az egyes táblák közt fennálló
+kapcsolatokat csak logikai redundanciával érjük el, azaz az egyik tábla kulcsát
+bevisszük a másik tábla oszlopai közé. Azt is mondhatnánk, hogy a külső kulcs
+értékei egyértelműen fognak rámutatni egy másik tábla alamely sorára a kulcs
+alapján. 
+</p>
+<p>
+Gyakran
+hívjuk <b>gyerektáblá</b>nak azt, ahol
+külső kulcsként szerepel egy másik
+tábla - az ő <b>szülőtáblájá</b>nak - kulcsa.
+</p>
+<p>
+Amikor a
+kulcs és külső kulcs elnevezése azonos és egyértelműen kell megfogalmazni,
+melyikről beszélünk, legrövidebben a táblanév.mezőnév alakban
+tehetjük meg. 
+</p>
+<p>
+Az
+adatbázis épségének biztosítása
+miatt a külső kulcsba írt érték csak olyan lehet, ami kulcsként már létezik abban a táblában, amire hivatkozik. 
+</p>
+<p>
+&nbsp;
+</p>
+</div><br/>
+</div>
+</div>
+</div>
+<div class="objectivesIdevice" id="id18">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle">Kulcsszavak a fejezetben:</span>
+<div class="iDevice_inner">
+<div id="ta18_40_4" class="block" style="display:block">a reláció kulcsa,
+egyszerű és összetett
+kulcs, kulcsszerepű és leíró tulajdonság, külső kulcs,
+táblák közti kapcsolat
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="21_relci.html">&laquo; Előző</a> | <a href="23_jellsek.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

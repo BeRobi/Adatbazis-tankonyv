@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 2.1. Reláció </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div id="subnav" class="withoutChild">
+<div id="active" class="withoutChild">2.1. Reláció</div>
+<div><a href="22_kulcsok.html" class="withoutChild">2.2. Kulcsok</a></div>
+<div><a href="23_jellsek.html" class="withChild">2.3. Jelölések</a></div>
+<div><a href="24_fggsgek.html" class="withChild">2.4. Függőségek</a></div>
+<div><a href="25_normalizls.html" class="withoutChild">2.5. Normalizálás</a></div>
+<div><a href="26_adatbzis_tervezse.html" class="withoutChild">2.6. Adatbázis tervezése</a></div>
+<div><a href="27_adatbzis_rtelmezse.html" class="withChild">2.7. Adatbázis értelmezése</a></div>
+<div><a href="28_adatbzis_bvtse.html" class="withChild">2.8. Adatbázis bővítése</a></div>
+</div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">2.1. Reláció</p></div>
+<div class="objectivesIdevice" id="id13">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta13_35_4" class="block" style="display:block"><p>
+Ebben a fejezetben a
+relációs adatmodell matematikai értelmezését illetve szabványos leírását adjuk
+meg. Innen kezdve a relációt táblának fogjuk nevezni. Figyeljük meg, hogy a
+táblát nemcsak nevével, hanem szerkezetével kell megadni.
+</p>
+
+</div><br/>
+</div>
+</div>
+</div>
+<div class="objectivesIdevice" id="id14">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> A relációs adatmodell</span>
+<div class="iDevice_inner">
+<div id="ta14_36_4" class="block" style="display:block">Az <b>egyedet</b> egy <b>táblázat</b>tal adjuk meg.
+<p>
+A táblázat
+oszlopai a <b>tulajdonságok</b>.
+</p>
+<p>
+Például Személyeket kívánunk tárolni nevükkel, születési
+dátumukkal és aktuális lakhelyükkel egy táblázatban. A sorok felvitelkor
+automatikus sorszámot kapnak.
+</p>
+<table align="center" border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td colspan="2" valign="top" width="39">
+			<p>
+			&nbsp;
+			</p>
+			</td>
+			<td align="center" valign="top" width="217">
+			<p>
+			<b>
+			név
+			</b>
+			</p>
+			</td>
+			<td align="center" valign="top" width="170">
+			<p>
+			<b>
+			szüldát
+			</b>
+			</p>
+			</td>
+			<td align="center" valign="top" width="189">
+			<p>
+			<b>
+			lakhely
+			</b>
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 1px" colspan="2" align="center" valign="middle">
+			<div align="center">
+			</div>
+			<p align="center">
+			1<br />
+			</p>
+			</td>
+			<td style="width: 217px" align="center" valign="middle">
+			<p>
+			Aba
+			Tamás			
+			</p>
+			</td>
+			<td style="width: 170px" align="center" valign="middle">
+			<p>
+			68. 01. 03			
+			</p>
+			</td>
+			<td align="center" valign="top" width="189">
+			<p>
+			Sarkad		
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center" width="1">
+			<div align="left">
+			</div>
+			<p align="center">
+			2 
+			</p>
+			</td>
+			<td style="width: 217px" align="center" valign="middle">
+			<p>
+			Varga Péter
+			</p>
+			</td>
+			<td style="width: 170px" align="center" valign="middle">
+			<p>
+			27. 03.12
+			</p>
+			</td>
+			<td style="width: 189px" align="center" valign="middle">
+			<p>
+			Pécs
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 217px" colspan="2" align="center" valign="middle">
+			<div align="left">
+			</div>
+			<p align="center">
+			3
+			</p>
+			</td>
+			<td style="width: 217px" align="center" valign="middle">
+			<p>
+			Varga Károly
+			</p>
+			</td>
+			<td style="width: 217px" align="center" valign="middle">
+			<p>
+			88. 08.22
+			</p>
+			</td>
+			<td style="width: 217px" align="center" valign="middle">
+			<p>
+			Battonya
+			</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+<b>Reláció:</b> a tulajdonsághalmazok Descartes-szorzatának részhalmaza.
+</p>
+<p>
+Mivel minden tulajdonság egy halmaz, azok
+Descartes-szorzatának egy részhalmaza valójában a táblázat. Mivel a
+matematikában az ilyen szorzatok részhalmazát relációnak nevezik, a modell
+erről kapta a nevét.
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+Magyarázatként
+a<b> reláció matematikai értelmezéséről:</b>
+</p>
+<p>
+Vegyünk 2 halmazt, képezzük azok Descartes-szorzatát, majd vegyük annak
+egy részhalmazát (azaz matematikailag egy relációt):
+</p>
+<p>
+NÉV = {K,L,B, M}<br />
+KOR = {21,16,35}<br />
+NÉV x KOR =<br />
+{ [K,21], [K,16], [K,35], [L,21], [L,16], [L,35], [B,21], [B,16], [B,35],
+[M,21], [M,16], [M,35] }<br />
+RELA1 = { [K,35], [L,21], [M,21] }<br />
+RELA1 Í NÉV x KOR
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+A <b>tábla</b> tehát a reláció (R), melynek oszlopai az attribútumok, sorai a rekordok. 
+</p>
+<p>
+A relációs adatbázis rövid jelölése:         R {A<sub>1</sub>, A<sub>2</sub>, ..., A<sub>n</sub>}
+</p>
+<p>
+ahol R a
+reláció neve, A<sub>i</sub> pedig az <i>i</i>.
+attribútum.
+</p>
+<p>
+Legyen : A = {A<sub>1</sub>,A<sub>2</sub>,...,A<sub>n</sub>} a tábla attribútumainak halmaza.
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+A fenti példa relációja tehát:  SZEMÉLY {név, szüldát, lakhely}
+</p>
+<p>
+<b> </b>
+</p>
+<p>
+Tekintsük az alábbi hétköznapi bizonylatot:
+</p>
+<p>
+<b>
+Minta</b>
+</p>
+<div align="center">
+<img src="1.jpg" height="314" width="628" />
+</div>
+<p align="center">
+2. ábra 
+</p>
+<p>
+<b>Ha az ilyen rendelési bizonylatok
+nyilvántartását szeretnénk
+megvalósítani, akkor az ügyvitelt figyelembe véve a következő fontos dolgot
+kell figyelembe vennünk:</b>
+</p>
+<ul class="unIndentedList">
+	<li>
+	minden
+	bizonylat kap beérkezéskor egy rendelési számot (rendszám)</li>
+	<li>
+	egy
+	vevő több rendelést is küldhet, tehát vevőkóddal érdemes ellátni (vkód)</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p>
+A kiindulási
+reláció, mely pillanatnyilag a nyilvántartásunk adatbázisa:
+</p>
+<p>
+<b>RENDELÉS {rendszám, vkód, vevőnév,
+vevőcím, kelt, határidő, cikkszám, cikknév, egysár, rendmenny, összérték}</b>
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+Természetesen
+azonnal látjuk, hogy a táblázat redundáns adatokat tartalmaz;
+</p>
+<ul type="disc">
+	<li>egy vevő több törzsadata (vevőnév, vevőcím)
+	minden bizonylat alkalmával tárolódik</li>
+	<li>egy bizonylat fej- és lábléc-adatai (vevő,
+	kelt, határidő és összérték) minden tétel alkalmával tárolódnak</li>
+	<li>egy cikk több törzsadata annyiszor
+	tárolódik, ahány bizonylaton megrendelték</li>
+</ul>
+<p>
+A
+továbbiakban arra törekszünk, hogy ezt a redundanciát megszüntessük.
+</p>
+<p>
+<b> </b>
+</p>
+<p>
+<b> </b>
+</p>
+<p>
+<br />
+<a href="..//#redund"></a>
+</p>
+</div><br/>
+</div>
+</div>
+</div>
+<div class="objectivesIdevice" id="id15">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle">Kulcsszavak a fejezetben</span>
+<div class="iDevice_inner">
+<div id="ta15_37_4" class="block" style="display:block">reláció, relációs adatmodell, reláció szabványos
+megadása, redundancia
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="2_relcis_adatbzis.html">&laquo; Előző</a> | <a href="22_kulcsok.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

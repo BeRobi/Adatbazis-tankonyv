@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 2.3. Jelölések </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="21_relci.html" class="withoutChild">2.1. Reláció</a></div>
+<div><a href="22_kulcsok.html" class="withoutChild">2.2. Kulcsok</a></div>
+<div id="active" class="withChild">2.3. Jelölések</div>
+<div id="subnav" class="withoutChild">
+<div><a href="231_i_plda.html" class="withoutChild">2.3.1 I. példa</a></div>
+<div><a href="232_ii_plda.html" class="withoutChild">2.3.2. II. példa</a></div>
+<div><a href="233_iii_plda.html" class="withoutChild">2.3.3. III. példa</a></div>
+<div><a href="234_iv_plda.html" class="withoutChild">2.3.4. IV. példa</a></div>
+<div><a href="235_v_plda.html" class="withoutChild">2.3.5. V. példa</a></div>
+<div><a href="236_tesztkrdsek.html" class="withoutChild">2.3.6. Tesztkérdések</a></div>
+</div>
+<div><a href="24_fggsgek.html" class="withChild">2.4. Függőségek</a></div>
+<div><a href="25_normalizls.html" class="withoutChild">2.5. Normalizálás</a></div>
+<div><a href="26_adatbzis_tervezse.html" class="withoutChild">2.6. Adatbázis tervezése</a></div>
+<div><a href="27_adatbzis_rtelmezse.html" class="withChild">2.7. Adatbázis értelmezése</a></div>
+<div><a href="28_adatbzis_bvtse.html" class="withChild">2.8. Adatbázis bővítése</a></div>
+</div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">2.3. Jelölések</p></div>
+<div class="objectivesIdevice" id="id19">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta19_41_4" class="block" style="display:block"><p>
+Ebben a
+fejezetben a relációs adatbázisban fennálló kapcsolatok szabványos jelölését
+ismertetjük, és egyiküket bevezetjük saját használatra. Tipikus mintapéldákon
+illusztráljuk a lehetséges kapcsolatokat. 
+</p>
+
+</div><br/>
+</div>
+</div>
+</div>
+<div class="objectivesIdevice" id="id20">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta20_42_4" class="block" style="display:block">
+<p>
+<b>EGYEDEK KÖZTI KAPCSOLAT JELÖLÉSE</b>
+</p>
+<div style="text-align: center">
+<img src="2.jpg" height="325" width="334" />
+</div>
+<div style="text-align: center">
+</div>
+<div style="text-align: center">
+3. ábra <br />
+</div>
+<br clear="all" />
+<p>
+Két
+kapcsolatban álló tábla közé vonalat húzni általában nem elég. Ha a vonalra
+írjuk, melyik oldalon van az 1 érték, melynek a másik oldalon több felel meg,
+akkor mindent jeleztünk a kapcsolatról. Természetesen sokkal kellemesebb mindezt
+a vonal típusával jelezni, mint ráírni. Az általános rendszerfejlesztési
+szakirodalomhoz igazodva rajzolhatunk varjúlábat, amelynek az ujjai a <i>sok</i> felé mutatnak; vagy a modern
+case-eszközök stílusához igazodva rajzolhatunk nyilat, amelynek a hegye az <i>egy</i> felé mutat. 
+</p>
+<p>
+Mi az
+utóbbihoz ragaszkodjunk, mert egyszerű és mindenki számára világos, hogy oda
+mutat, ahol egyértelműen meghatároz egy előfordulást. 
+</p>
+<p>
+<b> </b>
+</p>
+<p>
+<b>KAPCSOLATBAN ÁLLÓ RELÁCIÓK ÁBRÁZOLÁSA</b>
+</p>
+<div style="text-align: center">
+<img src="3.jpg" height="120" width="405" />
+</div>
+<div style="text-align: center">
+</div>
+<div style="text-align: center">
+4. ábra <br />
+</div>
+<p>
+<br clear="all" />
+</p>
+<p>
+Ugyancsak
+az általános rendszerfejlesztési szakirodalomhoz igazodva használjunk a
+relációk megadására <b>egyoszlopos
+táblázatot,</b> melyben a kulcsszerepű tulajdonságokat a másodlagosaktól a
+reláció neve választja el. Tehát a tábla tulajdonságait egy oszlopban soroljuk
+fel, melyek elején a kulcsot alkotó
+tulajdonságok vannak, majd megkülönböztetett betűvel a tábla neve, végül a
+leíró tulajdonságok. Amennyiben két tábla között kapcsolat áll fenn, akkor
+nyilat húzunk közéjük. Aki megteheti, még a nyilat is úgy helyezi el, hogy az
+az egyik tábla külső kulcsából mutasson a másik tábla kulcsára. Igaz, a
+nyílhegy egyértelműen a tábla kulcsára mutathat, de ahonnan ered, bizony nem
+mindig beszédes, mint külső kulcs.
+</p>
+<p>
+<b> </b>
+</p>
+<p>
+&nbsp;
+</p>
+<br />
+<p>
+<b> </b>
+</p>
+</div><br/>
+</div>
+</div>
+</div>
+<div class="objectivesIdevice" id="id21">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle">Kulcsszavak a fejezetben</span>
+<div class="iDevice_inner">
+<div id="ta21_43_4" class="block" style="display:block">kapcsolatok jelölése
+a relációs adatbázisban
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="22_kulcsok.html">&laquo; Előző</a> | <a href="231_i_plda.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

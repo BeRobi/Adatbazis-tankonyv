@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 3.1. A határozatlan érték </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div id="subnav" class="withoutChild">
+<div id="active" class="withoutChild">3.1. A határozatlan érték</div>
+<div><a href="32__megszortsok.html" class="withChild">3.2.  Megszorítások</a></div>
+<div><a href="33_mintaplda.html" class="withChild">3.3. Mintapélda</a></div>
+<div><a href="34_tesztkrdsek.html" class="withoutChild">3.4. Tesztkérdések</a></div>
+</div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">3.1. A határozatlan érték</p></div>
+<div class="objectivesIdevice" id="id42">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta42_63_4" class="block" style="display:block"><p>
+Minden logikai függvény ill. feltétel előtt tisztáznunk kell egy fontos,
+adattípustól független érték, az ismeretlen érték fogalmát. 
+</p>
+<p>
+Az SQL-alapú adatrendszerek standard adattípusait
+(számszerűek, karakteresek, logikai, dátumtípusúak) és alapműveleteiket
+megismertük az Adatbáziskezelés I keretében. Vannak esetek, amikor az adatbázis
+egyes mezőibe nem tudunk határozott értéket elhelyezni, ezért határozatlan tartalmúnak tekintjük. Szerencsétlen
+angol kifejezéssel: a mező tartalma NULL-érték (nem létező,
+ismeretlen érték). 
+</p>
+<p>
+Adattáblák oszlopaira megtilthatjuk az előfordulását. 
+</p>
+<p>
+A NULL-értéket tartalmazó kifejezések eredménye is ismeretlen lesz (kivétel a logikai vagy-művelet, melynek ha az egyik
+tagja igaz, akkor az eredmény már
+igaz).
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>Példa: </b>
+</p>
+<p>
+Adott a köv. tábla egy olyan adatbázis részleteként, melyben a diákok feladataik megoldására kapott
+pontokat tároljuk, ill. a plusz-pontokat, ha további, merőben más megoldásuk is
+értékelhető volt.<b> </b>
+</p>
+<p>
+<b>MEGOLDÁS {<u>diák_kód</u>, <u>feladat_szám</u>,
+pont_érték, plusz_pont}</b> 
+</p>
+<p>
+Jelen esetben világos, hogy a leírók közül a pont_érték
+bizonyára korlátozandó: legalább nulla és legfeljebb egy előírt (másik táblában
+tárolt) érték. A plusz_pont pedig értelemszerűen nulla is lehet.
+</p>
+<p>
+Abban az esetben, ha egy / az összes diák összteljesítményét kellene kiszámolni, akkor a
+pont_érték+plusz_pont aritmetikai összegeket kellene összegezni (pl. SUM függvénnyel az SQL-ben) adott diák / az egész tábla
+soraiban. Nos, ha valaki nem kapott plusz pontot, mert nem is volt második
+megoldása, akkor a mezőt nem hagyhatjuk kitöltetlenül, mert az összeg
+ismeretlenné válna. Tehát a plusz_pont nem lehet NULL; alapértelmezett értéke
+pedig lehetne nulla. 
+</p>
+
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="3_adatbzisbeli_szablyok.html">&laquo; Előző</a> | <a href="32__megszortsok.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> Az adatbázis bővítése </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="21_relci.html" class="withoutChild">2.1. Reláció</a></div>
+<div><a href="22_kulcsok.html" class="withoutChild">2.2. Kulcsok</a></div>
+<div><a href="23_jellsek.html" class="withChild">2.3. Jelölések</a></div>
+<div><a href="24_fggsgek.html" class="withChild">2.4. Függőségek</a></div>
+<div><a href="25_normalizls.html" class="withoutChild">2.5. Normalizálás</a></div>
+<div><a href="26_adatbzis_tervezse.html" class="withoutChild">2.6. Adatbázis tervezése</a></div>
+<div><a href="27_adatbzis_rtelmezse.html" class="withChild">2.7. Adatbázis értelmezése</a></div>
+<div><a href="28_adatbzis_bvtse.html" class="withChild">2.8. Adatbázis bővítése</a></div>
+<div id="subnav" class="withChild">
+<div><a href="281_tterem.html" class="withChild">2.8.1. Étterem</a></div>
+<div id="subnav" class="withoutChild">
+<div id="active" class="withoutChild">Az adatbázis bővítése</div>
+<div><a href="utsz.html" class="withoutChild">Utószó</a></div>
+</div>
+</div>
+</div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">Az adatbázis bővítése</p></div>
+<div class="objectivesIdevice" id="id39">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta39_59_4" class="block" style="display:block"><b>Beszerzés</b>
+<p>
+Legelőször az ANYAG tábla karbantartása tűnik felületesnek.
+Eddig nyom nélkül bővült a tábla. 
+</p>
+<p>
+Tehát általában kell egy BESZERZÉS tábla, ami a
+&quot;mikor-miből-mennyit-mennyiért&quot; információt tárolná: 
+</p>
+<p>
+<b>BESZERZÉS{<u>akód, dátum</u>, beár, menny}</b>
+</p>
+<p>
+De ezzel együtt felveszünk az ANYAGba egy <i>aktuális készlet</i> tulajdonságot, amelyhez
+beszerzéskor hozzáadjuk a <i>menny</i>-t a
+konkrét anyag esetén, rendeléskor
+pedig levonjuk a <i>rendmenny</i><!--[if supportFields]><i
+style='mso-bidi-font-style:normal'>SYMBOL
+42 \f &amp;quot;Symbol&amp;quot;</i><![endif]--><!--[if supportFields]><i
+style='mso-bidi-font-style:normal'></i><![endif]--><i>szüksmenny</i> szorzatot a recept által
+előírt összes hozzávaló esetén. 
+</p>
+<p>
+<b>ANYAG{<u>akód</u>, név, egysár, mértegys, készlet}</b>
+</p>
+<p>
+Figyelem: a készlet módosítása előtt súlyozott átlagárat
+kell számolni, hogy az anyag aktuális készlete mellett mindig annak a
+„mibekerülési&quot; ára szerepeljen.
+</p>
+<p>
+Javasolt funkció: a megrendelő bizonyára ilyenkor minden
+olyan ételnek megváltoztatná az árát, amibe az éppen megváltozott egységárú
+anyag beépül. 
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+Az ANYAG - BESZERZÉS kapcsolat
+1:N.<br />
+<!--[if gte vml 1]>
+<![endif]-->
+</p>
+<div style="text-align: center">
+<img src="image014.jpg" v:shapes="_x0000_i1025" height="175" width="285" />
+</div>
+<div style="text-align: center">
+ 
+</div>
+<div style="text-align: center">
+12. ábra <br />
+</div>
+<p>
+&nbsp;
+</p>
+<p>
+<font color="#008000">Megjegyzés: ebben az esetben is bizonylatolhatnánk, mint a
+„számlaadás&quot;-t.</font>
+</p>
+<p>
+<font color="#008000">(Ekkor a bejövő számlák <i>fejét</i>
+és <i>tételeit</i> tartjuk 2 táblában. A
+BESZERZÉS dátuma a fejbe, a többi adata pedig a tételek közé kerülne. A bejövő
+számlák számlaszáma nem biztos, hogy egyedi, ezért belső generált azonosítóval
+látjuk el.)</font>
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>Személyzet</b>
+</p>
+<p>
+Igény lehet a
+személyzet nyilvántartására, hiszen amint róluk is tud a rendszer, azon nyomban
+lehetőség nyílik a forgalom pincérekre való lebontására, vagy az árbevételtől
+főggő szakács-bérezésre. 
+</p>
+<p>
+Az normalizálás lépései szerint haladva jutunk az alábbi
+relációkhoz: 
+</p>
+<p>
+<b>SZEMÉLY{<u>kódszám</u>, neve, poszt}<br />
+BEOSZTÁS{<u>poszt</u>, jelentés}</b>
+</p>
+<p>
+A kapcsolat:1 beosztáshoz több személy tartozhat.
+</p>
+<p>
+A személyek (beosztásukat tekintve pincérek, szakácsok,
+kukták, zenészek stb.) közül csapatok alakulnak, akik egy adott napon együtt
+dolgoznak, és mivel egy személy több napon dolgozik, a SZEMÉLY - CSAPAT kapcsolat
+1:N. 
+</p>
+<p>
+<b>CSAPAT{<u>dátum, kódszám</u>}</b>
+</p>
+<p>
+Ekkor már a napi árbevétel előírt százaléka kiosztható
+például egyformán a kukták között, további százalék a szakácsnak stb. Ha a
+pincéreket viszont nem egyformán díjaznák, akkor rögzíteni kell naponta,
+mennyit dolgoztak (mely tételeket hordták ki ténylegesen).
+</p>
+<p>
+A forgalom pincérhez kötése az „asztalon keresztül&quot; történik, ui. naponta a felszolgáló pincérekhez
+rendeljük a sorszámozott asztalokat. Ám ne felejtsük el, hogy ebben az esetben
+a számlán az asztalt fel kell tüntetni. Ennek oka az alábbi funkcionális
+függőség: 
+</p>
+<p>
+<b>{dátum, sorszám}</b><!--[if supportFields]><b
+style='mso-bidi-font-weight:normal'>SYMBOL
+174 \f &amp;quot;Symbol&amp;quot;</b><![endif]--><!--[if supportFields]><b
+style='mso-bidi-font-weight:normal'></b><![endif]--><b>{kódszám}</b>, ahol a sorszám az asztal egyedi azonosítója.
+</p>
+<p>
+<font color="#008000">Megjegyzés: <i>nem igaz
+viszont</i>, hogy a dátum és kódszám meghatározná a sorszámot (ui. adott napon
+egy pincér több asztalt kap).</font>
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>Az új egyedek a következők:</b>
+</p>
+<p>
+<b>ASZTAL{<u>sorszám</u>, hányfős}<br />
+KISZOLGÁL{<u>dátum, sorszám</u>, kódszám}</b>
+</p>
+<p>
+A CSAPATból csak bizonyos kódszámok kerülnek a KISZOLGÁLba
+(most a pincérek), és ott többször szerepelhetnek, mivel 1 személyhez több
+asztal is tartozhat egy bizonyos napon. A kapcsolat tehát 1:N.
+</p>
+<p>
+Számla - pincér kapcsolatot létesít a sorszám felkerülése a
+számlára:
+</p>
+<p>
+<b>SZÁMLAFEJ{<u>szlaszám</u>, dátum, végösszeg, <i>sorszám</i>}</b>
+</p>
+<p>
+Így egy kiszolgáláshoz több számla tartozhat (adott napon
+adott asztalnál több számla születik). 
+</p>
+<p>
+Ha valaki felhasználói oldalról közelíti ezt a kérdést,
+akkor gondoljon arra, hogy egy nyitott számla tételeinek folytatása esetén mit tesz a pincér: lekéri az ő kódszámához
+tartozó ki nem fizetett számlákat? Nem, mert több olyan is lehet. Asztal-sorszámot
+kér, melyhez csak egy nyitott számla van. 
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+További kapcsolat: 1 asztalnál
+több számla készül. 
+</p>
+<p>
+<!--[if gte vml 1]>
+<![endif]-->
+</p>
+<div style="text-align: center">
+<img src="image015.jpg" v:shapes="_x0000_i1026" height="225" width="334" />
+</div>
+<div style="text-align: center">
+ 
+</div>
+<div style="text-align: center">
+13. ábra <br />
+</div>
+<p>
+&nbsp;
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+A végleges adatbázis ábrázolása: 
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<!--[if gte vml 1]>
+<![endif]-->
+</p>
+<div style="text-align: center">
+<img src="image016.jpg" v:shapes="_x0000_i1027" height="295" width="425" />
+</div>
+<div style="text-align: center">
+ 
+</div>
+<div style="text-align: center">
+14. ábra <br />
+</div>
+<p>
+&nbsp;
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+(tulajdonságok nélkül
+és minden felállítható kapcsolattal) 
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>Fontos</b>: A hivatkozási épség megőrzése azt jelenti, hogy a 1
+KISZOLG-sor 1 CSAPAT-tagra mutat, ami majd 1 SZEMÉLY-re. Ezt a külső kulcsok
+felállításával érjük el. Itt nem elég egy létező személyre hivatkozni a
+kiszolgálásban, annak ellenére, hogy a KISZOLG:SZEMÉLY kapcsolat él, és
+valamely lekérdezés esetén akár
+kihagyható lesz a CSAPAT. 
+</p>
+<p>
+Továbbá másik szabályt is be kell állítani, miszerint csak
+olyan csapattagokra mutathat bármelyik <i>kiszolgál</i>-sor,
+amelyhez tartozó személy beosztása pincér. Csak ők kapnak asztalokat. Az erről
+való gondoskodást (megszorítás megadásával) a későbbiekben tanuljuk meg.
+</p>
+<p>
+Ugyanígy egy SZFEJ a KISZOLG-soron keresztül mutasson egy
+ASZTALra. Vagyis a SZFEJ-sor adott dátuma mellett nem akármelyik asztal állhat
+az ASZTAL sorai közül, hanem csak olyan, amit egy pincérhez hozzárendeltek aznap
+a KISZOLGban. Csak valamely lekérdezés során hagyható el a KISZOLG a SZFEJ és
+ASZTAL mellől; mert a kapcsolat eredeti definíciója szerint ez megtehető.
+</p>
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="281_tterem.html">&laquo; Előző</a> | <a href="utsz.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

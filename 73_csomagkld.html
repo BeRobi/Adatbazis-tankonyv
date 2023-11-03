@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 7.3. Csomagküldő </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="71_futr.html" class="withoutChild">7.1. Futár</a></div>
+<div><a href="72_kellkes.html" class="withoutChild">7.2. Kellékes</a></div>
+<div id="active" class="withoutChild">7.3. Csomagküldő</div>
+</div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">7.3. Csomagküldő</p></div>
+<div class="objectivesIdevice" id="id73">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta73_26_4" class="block" style="display:block"><p>
+Adott csomagküldő
+szolgálat diszpécserszolgálatának adatbázisát látjuk. A vásárlók levélben vagy
+telefonon a cég katalógusában felsorolt cikkek közül rendelnek, melyet a szolgálat
+a változó aktuális készletek erejéig tud teljesíteni. Az összeállított
+csomagot postán vagy futárral küldik ki a vásárló címére. 
+</p>
+<p>
+<b>3 verzó szerint történhet a megrendelések teljesítése. </b>
+</p>
+<p>
+Minden
+esetben próbáljon körültekintően mintasorokat készíteni: 
+</p>
+<ul>
+	<li>a csomag több tétel esetén is ugyanannak a vevőnek szóljon, </li>
+	<li>csak akkor indítson csomagot,
+	ha lesz legalább egy teljesíthető tétele,</li>
+	<li>egy csomagtétel
+	regisztrálásával együtt aktualizálja a készletet.</li>
+</ul>
+<p>
+<i>Teljesen természetes, ha közben egyre jobban
+vágyik az sql-megszorítások adatbázisba történő
+beépítésére.</i>
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>A verzió</b>
+</p>
+<p>
+A
+szolgálat csak teljes rendeléseket küld ki, tehát bármely rendelés minden tételét egyszerre kell kiszállítania. Előfordulhat, hogy
+adott vevőnek több rendelése kerül egy csomagba, mire azok minden tétele
+teljesíthetővé válik a pillanatnyi készletek alapján. 
+</p>
+<p>
+Az adatbázis szerkezete
+</p>
+<p>
+<i>Figyelje meg, hogy a
+csomag tételei valójában a kitöltött csomaggal rendelkező rendelések!</i>
+</p>
+<p>
+<!--[if gte vml 1]>
+<![endif]--><img src="image003.jpg" v:shapes="_x0000_i1025" height="345" width="523" /><br />
+<i> </i>
+</p>
+<p>
+<i>Gyakorlás
+céljából <a href="csomagkuldoA.mdb">töltse le az
+Access-adatbázist</a>!</i>
+</p>
+<p>
+&nbsp;
+</p>
+<b>
+</b>
+<p>
+<b>B verzió</b>
+</p>
+<p>
+A
+szolgálat szakaszosan teljesít a
+pillanatnyi készleteknek megfelően; tehát előfordulhat, hogy valamelyik
+rendeléstétel később, egy másik csomagban kerül kiszállításra annak rendelt
+mennyiségével. Így is
+előfordulhat, hogy egy csomagba több rendelés tételei kerülnek bele. 
+</p>
+<p>
+Az adatbázis szerkezete
+</p>
+<p>
+<i>Figyelje meg, hogy a
+csomag tételei valójában a kitöltött csomaggal rendelkező rendelés-tételek!</i>
+</p>
+<p>
+<!--[if gte vml 1]>
+<![endif]--><img src="image004.jpg" v:shapes="_x0000_i1026" border="0" height="304" width="531" /><br />
+<i> </i>
+</p>
+<p>
+<i>Gyakorlás
+céljából <a href="csomagkuldoB.mdb">töltse le az
+Access-adatbázist</a>!</i><br />
+ 
+</p>
+<p>
+&nbsp;
+</p>
+<b>
+</b>
+<p>
+<b>C verzió</b>
+</p>
+<p>
+A
+szolgálat folyamatosan teljesít
+a pillanatnyi készletek erejéig; tehát előfordulhat, hogy egy rendelési tételre
+is csak részletekben, azaz több csomaggal érkezik meg a kívánt mennyiség. Még az is
+előfordulhat, hogy egy csomagba több rendelés ugyanolyan cikkről szóló tétele kerül
+valamekkora mennyiségben. 
+</p>
+<p>
+Az adatbázis szerkezete
+</p>
+<p>
+<i>Figyelje meg, hogy a
+csomag tételei valóban önállóak a rendelés-tételek és a csomagok közti  elméleti 
+N_M viszony miatt!</i>
+</p>
+<p>
+<!--[if gte vml 1]>
+<![endif]--><img src="image005.jpg" v:shapes="_x0000_i1027" border="0" height="364" width="561" /><br />
+<i> </i>
+</p>
+<p>
+<i>Gyakorlás
+céljából <a href="csomagkuldoC.mdb">töltse le az
+Access-adatbázist!</a></i>
+</p>
+
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="72_kellkes.html">&laquo; Előző</a> | <a href="8_pldatr.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

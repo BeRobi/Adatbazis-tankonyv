@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 2.4.2. Teljes függőség </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="21_relci.html" class="withoutChild">2.1. Reláció</a></div>
+<div><a href="22_kulcsok.html" class="withoutChild">2.2. Kulcsok</a></div>
+<div><a href="23_jellsek.html" class="withChild">2.3. Jelölések</a></div>
+<div><a href="24_fggsgek.html" class="withChild">2.4. Függőségek</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="241_funkcionlis_fggsg.html" class="withoutChild">2.4.1. Funkcionális függőség</a></div>
+<div id="active" class="withoutChild">2.4.2. Teljes függőség</div>
+<div><a href="243_tranzitv_fggsg.html" class="withoutChild">2.4.3. Tranzitív függőség</a></div>
+<div><a href="244_tesztkrdsek.html" class="withoutChild">2.4.4. Tesztkérdések</a></div>
+</div>
+<div><a href="25_normalizls.html" class="withoutChild">2.5. Normalizálás</a></div>
+<div><a href="26_adatbzis_tervezse.html" class="withoutChild">2.6. Adatbázis tervezése</a></div>
+<div><a href="27_adatbzis_rtelmezse.html" class="withChild">2.7. Adatbázis értelmezése</a></div>
+<div><a href="28_adatbzis_bvtse.html" class="withChild">2.8. Adatbázis bővítése</a></div>
+</div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">2.4.2. Teljes függőség</p></div>
+<div class="objectivesIdevice" id="id24">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta24_46_4" class="block" style="display:block"><p>
+<b>Teljes függőség </b>
+</p>
+<p>
+Legyen P, Q<img src="eXe_LaTeX_math_1.gif" exe_math_latex="eXe_LaTeX_math_1.gif.tex" exe_math_size="4" />A és P → Q.
+</p>
+<p>
+Q
+funkcionálisan teljesen
+függ P-től, ha Q a P
+egyetlen részhalmazától sem függ. Ellenkező esetben részleges a függőség.
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>Példák:</b>
+</p>
+<ol>
+	<li>RENDELÉSTÉTEL
+	{<u>rendszam</u>, <u>cikkszam</u>, darab}</li>
+	<li>TÖRLESZTÉS
+	{<u>szemszám</u>, <u>hónap</u>, összeg, kelt}</li>
+	<li>LÁTOGATÁS
+	{<u>azonosító</u>, <u>dátum</u>, <u>időpont</u>, téma, időtartam}</li>
+</ol>
+<p>
+&nbsp;
+</p>
+<p>
+A fenti 3
+különálló tábla mindegyikének
+összetett kulcsa van, és a leíró tulajdonságok a kulcstól teljesen függnek. 
+</p>
+<p>
+Ha például
+a Rendeléstételben benne lenne a vevőkód vagy a cikknév, akkor azok nem
+teljesen függnének saját kulcsuktól,
+hiszen a vevőkód csak a rendszámtól, a cikknév pedig csak a cikkszámtól függ
+teljesen. Ilyen esetben a vevőkódot mindannyiszor megismételnénk, ahány különböző cikket vennénk fel mellé, illetve a cikk nevét is annyiszor
+megismételnénk, ahány különböző
+rendelésszámon előfordul. 
+</p>
+<p>
+A
+Törlesztésben egy személy havonta legfeljebb egyszer törleszt és azt
+egyértelműen valamilyen napon teszi valamekkora (valószínűleg különböző)
+összeggel. Itt sincs a leírók között csak a személyre, illetve a hónapra
+vonatkozó törzsadat, mert bizony feleslegesen többször kellene tárolnunk. 
+</p>
+<p>
+A
+Látogatás kulcsa szerint egy ügyfél adott napon akár több időpontban is
+látogatást tehet (esetünkben a főnökünknél, akinek a nyilvántartását vezetjük),
+és valahány percet valamilyen témában ott töltött, de vitatkozhatunk azon, hogy
+ha többen vannak egyidőben a megbeszélésen, akkor esetleg egy témáról
+folytatnak megbeszélést. 
+</p>
+<p>
+Tehát a
+részleges függés redundanciát okoz, ellentettje a teljes, amire törekedni kell.
+Ez azt jelenti, hogy a kulcs mellett valóban csak olyan leíróknak van helyük,
+melyek egyike sem függ a kulcs valamely valódi részhalmazától. 
+</p>
+
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="241_funkcionlis_fggsg.html">&laquo; Előző</a> | <a href="243_tranzitv_fggsg.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

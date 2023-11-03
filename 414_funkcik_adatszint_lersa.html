@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 4.1.4. Funkciók adatszintű leírása </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div id="subnav" class="withChild">
+<div><a href="41_futrszolglat.html" class="withChild">4.1. Futárszolgálat</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="411_kvetelmnyek.html" class="withoutChild">4.1.1. Követelmények</a></div>
+<div><a href="412_az_adatbzis_lersa.html" class="withoutChild">4.1.2. Az adatbázis leírása</a></div>
+<div><a href="413_gyviteli_funkcik.html" class="withoutChild">4.1.3. Ügyviteli funkciók</a></div>
+<div id="active" class="withoutChild">4.1.4. Funkciók adatszintű leírása</div>
+</div>
+</div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">4.1.4. Funkciók adatszintű leírása</p></div>
+<div class="objectivesIdevice" id="id56">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta56_78_4" class="block" style="display:block">
+<p>
+<b>Megrendelés felvétele:</b><br />
+új sor KÜLDEMbe<br />
+azon:=generált szám<br />
+kelt:=rendszerdátum,
+időpont:=rendszeridő<br />
+megrend, kitől, kinek: létező
+partnerek<br />
+többi mező: nem kitöltött<br />
+[új sorok PARTNERbe, CÍMbe]<br />
+választás dolgozó futárok közül
+(§):<br />
+feltétele: szám=0 vagy a kitől és
+DOLGOZ.cím összevetéséből választjuk őt<br />
+telefonon megegyezés / további
+várakozás
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>
+Futás indítása:</b><br />
+üres fszám-os küldeményekhez: ld. §<br />
+azon és kitől bediktálása
+futárnak<br />
+fszám módosítása KÜLDEMben<br />
+szám megnövelése és cím inputja
+DOLGOZban
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>
+Küldemény
+teljesítésének ellenőrzése:</b><br />
+választott küldemény állapota:<br />
+futára sincs még (fszám üres)<br />
+futár megy érte (fszám van és
+átvét üres)<br />
+futár viszi címzettnek (fszám és
+átvét van, átad üres)<br />
+teljesítve (átad van)
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>
+Küldemény
+átadásának/átvételének rögz.:</b><br />
+feltétel: a futár helyes azon-ra
+hivatkozik<br />
+átvét:=rendszeridő, DOLOZ.cím
+inputja<br />
+vagy<br />
+átad:=rendszeridő, szám
+csökkentése és DOLGOZ.cím inputja
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>
+Dolgozó futár helyzetének
+módosítása:</b><br />
+feltétele: szám=0 (vagy esetleg a
+futár kezdeményezésére új input)<br />
+cím: input
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>
+Futár munkakezdése:</b><br />
+feltétele: van kész MOTOR<br />
+új sor DOLGOZba<br />
+adott fszám, rendszerdátum és
+-idő, választott kész rendsz, input ftel<br />
+meddig: üres, cím: input,
+szám:=0;<br />
+MOTOR.kész:=false
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>
+Futár munkavégzése:</b><br />
+feltétele: szám=0<br />
+meddig módosítása, MOTOR.kész:
+input (hátha mégsem kész, mert hibás)
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>
+Napi zárás:</b><br />
+feltétele: minden DOLGOZ.meddig:
+kitöltve<br />
+MOTORban a kész frissítése
+(döntéshozatal hatására)<br />
+KÜLDEM tételes listázása
+(törzsadatokkal és aktuális díjakkal)<br />
+KÜLDEM sorainak felfűzése az
+ÖSSZKÜLDhez<br />
+új üres KÜLDEM létrehozása<br />
+DOLGOZ sorainak felfűzése az
+ÖSSZDOLGhoz<br />
+új üres DOLGOZ létrehozása<br />
+(A KÜLDEM ill. DOLGOZ sorokat
+naponta érdemes elmenteni az eddigi göngyölt adatokhoz és naponta 2 ilyen üres
+táblával kezdeni.)
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>
+Listák</b><b>
+</b>
+</p>
+<ul>
+	<li>elszámolások havi/futár szerinti
+	bontása</li>
+	<li>napi szállítások időtartama, napi összes holtidő</li>
+	<li>küldemények
+	napi számának átlaga</li>
+	<li>megrendelők gyakorisága</li>
+	<li>a legsűrűbben felkeresett címek</li>
+	<li>két cím közötti legrövidebb ill.
+	leghosszabb teljesítés stb.</li>
+</ul>
+<p>
+(A köv. részben ezeket a lekérdezéseket megoldhatjuk már SQL-ben.)
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>
+Javaslatok archiválásra</b>
+</p>
+<ul>
+	<li>hetente teljes másolat készítés</li>
+	<li>hivatkozás nélküli törzsadatok törlése 3 hónap
+	után legyen megengedett</li>
+	<li>időszerű kifizetések adatainak feladása után az
+	ELSZÁM pl. ELSZÁMév_hó_nap néven csak olvasható legyen</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p>
+<b>
+Javaslatok bővítésre</b>
+</p>
+<ul>
+	<li>küldemény
+	stornózása (a megrendelő lemondja, amíg odaér a futár)</li>
+	<li>problémás esetek kezelése (baleset - új futár,
+	hibás cím, visszaküldés, ...)</li>
+	<li>számlázás a megrendelők felé (bizonylat
+	készítése)</li>
+	<li>futárok kifizetésének
+	bizonylatolása</li>
+	<li>motorok állapotának (szervízelés, káreset stb.)
+	követése; üzemanyag nyilvántartás</li>
+</ul>
+<p>
+&nbsp;
+</p>
+</div><br/>
+</div>
+</div>
+</div>
+<div class="objectivesIdevice" id="id57">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle">Kulcsszavak a fejezetben:</span>
+<div class="iDevice_inner">
+<div id="ta57_79_4" class="block" style="display:block">adatbázis-specifikáció
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="413_gyviteli_funkcik.html">&laquo; Előző</a> | <a href="5_terminolgia.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

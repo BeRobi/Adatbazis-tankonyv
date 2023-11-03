@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 2.4.3. Tranzitív függőség </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="21_relci.html" class="withoutChild">2.1. Reláció</a></div>
+<div><a href="22_kulcsok.html" class="withoutChild">2.2. Kulcsok</a></div>
+<div><a href="23_jellsek.html" class="withChild">2.3. Jelölések</a></div>
+<div><a href="24_fggsgek.html" class="withChild">2.4. Függőségek</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="241_funkcionlis_fggsg.html" class="withoutChild">2.4.1. Funkcionális függőség</a></div>
+<div><a href="242_teljes_fggsg.html" class="withoutChild">2.4.2. Teljes függőség</a></div>
+<div id="active" class="withoutChild">2.4.3. Tranzitív függőség</div>
+<div><a href="244_tesztkrdsek.html" class="withoutChild">2.4.4. Tesztkérdések</a></div>
+</div>
+<div><a href="25_normalizls.html" class="withoutChild">2.5. Normalizálás</a></div>
+<div><a href="26_adatbzis_tervezse.html" class="withoutChild">2.6. Adatbázis tervezése</a></div>
+<div><a href="27_adatbzis_rtelmezse.html" class="withChild">2.7. Adatbázis értelmezése</a></div>
+<div><a href="28_adatbzis_bvtse.html" class="withChild">2.8. Adatbázis bővítése</a></div>
+</div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">2.4.3. Tranzitív függőség</p></div>
+<div class="objectivesIdevice" id="id25">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta25_47_4" class="block" style="display:block"><p>
+<b>Tranzitív függőség</b>
+</p>
+<p>
+<b> </b>
+</p>
+<p>
+Az S tranzitíven függ 
+P-től, ha létezik olyan Q<img src="eXe_LaTeX_math_1.gif" exe_math_latex="eXe_LaTeX_math_1.gif.tex" exe_math_size="4" />A, 
+</p>
+<p>
+hogy P → Q, Q → S, de visszafelé nem igazak a
+függőségek.
+</p>
+<p>
+<b> </b>
+</p>
+<p>
+<b>Példák:</b>
+</p>
+<ol>
+	<li>DOLGOZÓ
+	{<u>szemszám</u>, név, <i>osztkód</i>, osztelnev}</li>
+	<li>RENDELÉSFEJ
+	{<u>rendszám</u>, <i>vkód</i>, vevőnév, vevőcím, kelt, határidő, összérték}</li>
+	<li>LÁTOGATÓK
+	{<u>azonosító</u>, név, <i>cég</i>, cégnév, cégcím, cégtel}</li>
+</ol>
+<p>
+&nbsp;
+</p>
+<p>
+A fenti 3 különálló
+tábla mindegyike redundáns, mert tranzitív függőség van bennük. 
+</p>
+<p>
+A Dolgozóban az osztály
+elnevezése függ tranzitíven a kulcstól, mégpedig az osztály kódján keresztül.
+Minden dolgozó valamelyik egyetlen osztályon dolgozik, de többen dolgoznak
+ugyanazon az osztályon, így több dolgozó mellett ugyanazt az elnevezést
+tároljuk. Az osztelnev tulajdonság tehát nem maradhat a Dolgozó táblában. 
+</p>
+<p>
+A Rendelésfejben pedig a
+vevőnév és vevőcím tárolódik feleslegesen sokszor, mert egy vevőnek több
+rendelésszáma is lehet. A rendszám egyértelműen meghatározza a vevő kódját,
+attól pedig a vevő törzsadatai függnek teljesen. 
+</p>
+<p>
+A Látogatók táblában
+pedig a cég törzsadatainak nincs helyük, hiszen a kulcstól tranzitíven függnek
+a cég kódján keresztül. Valóban több látogatónk is lehet ugyanattól a cégtől,
+tehát a cég nevét, címét és telefonját nem illik minden dolgozó mellett
+tárolni. 
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+A következő fejezetben
+pontosítjuk a részleges és tranzitív függés kiszűrésének
+menetét, de addig fogadjuk el, hogy a Dolgozóba csak az osztkód kerülhetne az
+osztályadatok közül, a Rendelésfejbe pedig csak a vkód a vevőadatok közül,
+illetve a Látogatókba csak a cég a cégadatok közül. A többi leíróval nem volt
+gond.
+</p>
+<p>
+&nbsp;
+</p>
+</div><br/>
+</div>
+</div>
+</div>
+<div class="objectivesIdevice" id="id26">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle">Kulcsszavak a fejezetben</span>
+<div class="iDevice_inner">
+<div id="ta26_48_4" class="block" style="display:block">funkcionális
+függőség, újabb függőségek származtatása,
+teljes (részleges) és tranzitív függőség.
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="242_teljes_fggsg.html">&laquo; Előző</a> | <a href="244_tesztkrdsek.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

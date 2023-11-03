@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 4.1.2. Az adatbázis leírása </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div id="subnav" class="withChild">
+<div><a href="41_futrszolglat.html" class="withChild">4.1. Futárszolgálat</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="411_kvetelmnyek.html" class="withoutChild">4.1.1. Követelmények</a></div>
+<div id="active" class="withoutChild">4.1.2. Az adatbázis leírása</div>
+<div><a href="413_gyviteli_funkcik.html" class="withoutChild">4.1.3. Ügyviteli funkciók</a></div>
+<div><a href="414_funkcik_adatszint_lersa.html" class="withoutChild">4.1.4. Funkciók adatszintű leírása</a></div>
+</div>
+</div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">4.1.2. Az adatbázis leírása</p></div>
+<div class="objectivesIdevice" id="id54">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta54_76_4" class="block" style="display:block"><p>
+(a kulcsok aláhúzással, a külső kulcsok szürkével kiemeltek) 
+</p>
+<p>
+<b>MOTOR {<u>rendsz</u>,
+adat1,..., kész}<br />
+</b>a motorok törzse; műszaki adatokkal és egy logikai
+állapotjelzővel, kész-e a szolgálatra 
+</p>
+<p>
+<b>FUTÁR {<u>fszám</u>,
+fnév, fcím, m_váll1,...}</b><br />
+a futárok törzse, névvel, címmel, ami ugyancsak egy CÍMre
+mutat, valamint munkavállalási adatokkal 
+</p>
+<p>
+<b>CÍM {<u>cím</u>,
+elnev, ker, utca, hsz}</b><br />
+a címek törzse, melyben az elnevezés csak irodaházak és
+vegyes intézmények esetén kitöltött (magánszemély lakcímének nincs neve), a kerület, utca és a többi kötelezően kitöltendő 
+</p>
+<p>
+<b>PARTNER {<u>kód</u>,
+név, tel, cím}</b><br />
+a partnerek törzse, akik megrendelik, akiktől elszállítják
+és akiknek kiszállítják a küldeményeket;
+mindegyik egy CÍMre mutat 
+</p>
+<p>
+<b>KÜLDEM {<u>azon</u>,
+megrend, kelt, időpont, kitől, kinek, fszám, átvét, átad}</b><br />
+a kelt+időpont-ban felvett küldemények
+törzse, melyek mindegyike sorszámot kap, a megrendelő szerint megadott kitől
+kinek szállítja egy futár és a felvétel illetve leadás időpontjával jelzi a szállítás
+stádiumát 
+</p>
+<p>
+<b>DOLGOZ {<u>dátum,
+mettől, fszám</u>, meddig, rendsz, ftel, cím,
+szám}</b><br />
+az egyes futárok munkaidejének
+(adott dátummal mettől meddig) tárolása az aktuális motorral, pillanatnyi
+telefonszámmal (amin elérhető), a pillanatnyi címmel (aminek a közelében
+tartózkodik) és az aktuális számlálóval, amiben a rábízott küldeményeket gyűjtjük (másik egyedi kulcsa: dátum, mettől, rendsz) 
+</p>
+<p>
+<b>DÍJAK {<u>mióta</u>,
+óradíj, dbár}</b><br />
+az óradíj és a teljesített küldemények
+darabára (a legutolsó állapot az aktuális) 
+</p>
+<p>
+<b>ELSZÁM {<u>meddig,
+fszám</u>, összeg}</b><br />
+a futárok kifizetéséhez igazolást adunk a teljesítményekről (pl. éppen valahányadikáig)
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>Fogalmak</b>
+</p>
+<ul>
+	<li>szám: a dolgozó futárhoz pillanatnyilag hozzá
+	tartozó (még nem teljesített) küldemények
+	száma</li>
+	<li>összeg: a kifizetendő összeg a teljesítmény alapján
+	<ul>
+		<li>(meddig - mettől) * óradíj + küldemények_száma * dbár  
+		<i>időszakfüggően</i> (Dolgoz.dátum
+		és Küldem.kelt 2 Díjak.mióta közé esésének
+		figyelése alapján illetve az Elszám.meddig óta az aktuális dátumig)</li>
+	</ul>
+	</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p>
+Megszorítások 
+</p>
+<ul>
+	<li>kulcsok
+	(egyik sem lehet null)
+	<ul>
+		<li>természetesen
+		minden kulcsot ki kell tölteni</li>
+		<li>itt
+		adjuk meg, ha lennének a további
+		egyedi kulcsokat, amelyeket nem választottunk meg elsődlegesnek</li>
+	</ul>
+	</li>
+	<li>külső kulcsok (csak a KÜLDEM.fszám lehet null)
+	<ul>
+		<li>azokat
+		a külső kulcsokat, amelyek kulcsszerepűek, természetesen ki kell tölteni, de
+		amelyek leírók, azokról eldöntjük, hogy az ügyvitel alapján maradhatnak-e nem
+		kitöltöttek</li>
+		<li>itt
+		csak a Küldemény futárszáma maradhat
+		ismeretlen érték a felvitelkor, mert csak később kerül megadásra egy
+		módosítással (amikor találtunk hozzá futárt)</li>
+	</ul>
+	</li>
+	<li>elnev, átvét, átad, meddig: lehet null
+	<ul>
+		<li>a
+		többi leíró tulajdonságot is meg kell adni ezen 4 kivételével, ugyanis:</li>
+		<li>az
+		elnevezés bizonyos partnerek esetén
+		nem létezik</li>
+		<li>a
+		küldemény átvételének és átadásának időpontja jóval később válik
+		ismertté a küldemény megrendelésének felvételénél,
+		ezért majd módosítással kerülnek be egymás után, a futár jelzéseinek hatására</li>
+		<li>a
+		munkát felvevő futár adatait tárolva még nem adhatjuk meg, meddig dolgozott</li>
+	</ul>
+	</li>
+	<li>kész: true/false</li>
+</ul>
+<p>
+logikai őrszem segít a Motorok közül szabadot találni,
+melyet egy munkafelvevő futárhoz rendelve azonnal hamisra állítunk,
+munkavégzéskor pedig elbírálás alapján igazra, ha továbbra is alkalmas a
+szolgálatra
+</p>
+<ul>
+	<li>óradíj, dbár, összeg: nagyobbak 0-nál</li>
+	<li>egyszerű feltételek kiosztása a
+	tulajdonságokhoz:
+	<ul>
+		<li>az
+		óradíj és darabár input adatok, de csak 0-nál nagyobb értékkel van értelme
+		felvinni</li>
+		<li>az
+		összeg számolt adat, de csak 0-nál nagyobb értékkel van értelme tárolni</li>
+	</ul>
+	</li>
+	<li>szám &gt;= 0 a számlálóként
+	működő tulajdonság aktív dolgozónál 0-nál nagyobb (esetlegesen felülről korlátozható),
+	várakozó dolgozó futárnál (és a munkát leadó futárnál) pedig 0</li>
+	<li>ahány kész motor van, annyi futár dolgozhat
+	egyszerre</li>
+</ul>
+<p>
+fontos szabály, nem muszáj önálló megszorításként megadni, ugyanis. egy dolgozó futárt csak akkor
+szabad felvenni, ha van még szabad motor
+</p>
+<p>
+<b>Kapcsolatok</b>
+</p>
+<p align="left">
+<!--[if gte vml 1]>
+<![endif]--><img src="image018.jpg" v:shapes="_x0000_i1025" height="259" width="459" />
+</p>
+<p align="left">
+Minden nyíl a sok felől
+mutat az egy felé.
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<font color="#008000">Megjegyzések:</font>
+</p>
+<ul>
+	<li><font color="#008000">A
+	KÜLDEM:PARTNER párhuzamos kapcsolatok ábrázolhatók 3 partnerrel is (Megrendelő,
+	Kitől, Kinek)</font></li>
+	<li><font color="#008000">A DÍJAK
+	tábla csak a külső kulcs hiánya miatt izolált tábla, hiszen a DOLGOZ és a
+	KÜLDEM tábla is egyértelműen rámutat. Ez a hozzájuk tartozó sor
+	intervallum-kereséssel adható vissza, mint odaillő sor (mert azonosan egyenlő
+	csak elvétve fordulhat elő).</font> </li>
+</ul>
+
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="411_kvetelmnyek.html">&laquo; Előző</a> | <a href="413_gyviteli_funkcik.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

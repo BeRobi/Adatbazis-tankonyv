@@ -1,0 +1,1410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 2.7.1. Gyártás </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="21_relci.html" class="withoutChild">2.1. Reláció</a></div>
+<div><a href="22_kulcsok.html" class="withoutChild">2.2. Kulcsok</a></div>
+<div><a href="23_jellsek.html" class="withChild">2.3. Jelölések</a></div>
+<div><a href="24_fggsgek.html" class="withChild">2.4. Függőségek</a></div>
+<div><a href="25_normalizls.html" class="withoutChild">2.5. Normalizálás</a></div>
+<div><a href="26_adatbzis_tervezse.html" class="withoutChild">2.6. Adatbázis tervezése</a></div>
+<div><a href="27_adatbzis_rtelmezse.html" class="withChild">2.7. Adatbázis értelmezése</a></div>
+<div id="subnav" class="withoutChild">
+<div id="active" class="withoutChild">2.7.1. Gyártás</div>
+</div>
+<div><a href="28_adatbzis_bvtse.html" class="withChild">2.8. Adatbázis bővítése</a></div>
+</div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">2.7.1. Gyártás</p></div>
+<div class="objectivesIdevice" id="id34">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta34_54_4" class="block" style="display:block">
+<p>
+Egy cég rendeléseket vesz fel dátum időpontra a raktárán lévő
+alkatrészekből összeszerelhető termékeire. 
+</p>
+<p>
+A vevő nem regisztrált.
+</p>
+<p>
+&nbsp;
+</p>
+<p align="center">
+<!--[if gte vml 1]>
+<![endif]--><img src="image012.gif" v:shapes="_x0000_i1025" height="360" width="480" />
+</p>
+<p align="center">
+10. ábra 
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+A rövid leírás és a kapcsolati
+ábra szerint a következőket lehet tudni:
+</p>
+<p>
+<i> </i>
+</p>
+<p>
+Minden
+Terméknek van kódja, neve és aktuális ára; minden Alkatrésznek van azonosítója,
+neve, mértékegysége, aktuális egységára és pillanatnyi készlete. A Termék törzs
+kulcsa (a kód) külső kulcsként
+megtalálható a Szerkezetben, illetve az Alkatrész kulcsa (az azon) is külső
+kulcs a Szerkezetben. A 2 törzs közti viszonyt a Szerkezet kapcsolótábla oldja
+meg, amiben tárolásra kerül, hogy bármelyik egységnyi termékhez melyik
+alkatrészből mennyi szükséges annak mértékegysége szerint. A Rendelés valójában
+rendeléstétel-tábla, mert a kulcsa nemcsak a rendszám (és benne nem a bizonylat
+fej- és lábléc-adatai vannak), de mivel semmilyen rendelésfejbe illő adatot nem
+tárolunk, Rendelés a neve. Ebbe a rendelés alkalmával generált rendszám mellé
+különféle termékkódokat vihetünk fel, amelyekről azt tároljuk, hogy hány
+egységet és mikorra kérik. 
+</p>
+<p>
+A
+kapcsolatban álló táblák között nyíl látható, mely mindig a sokból mutat az
+egybe (rajta pedig a kapcsoló tulajdonság helyezkedik el). 
+</p>
+<p>
+A függőségi
+család pedig ugyancsak kiolvasható az adatbázis tábláiból, miután minden táblán
+belül a kulcs meghatározza a többi tulajdonságot:
+</p>
+<p>
+{kód} → {név, ár}<br />
+{azon} → {neve, m_egys, egys_ár, készlet}<br />
+{kód, azon} → {mennyi}<br />
+{rend_szám, kód} →
+{darab, dátum}<br />
+Láttuk az előzőekben, hogy meglevő függőségekből újakat
+lehet származtatni, és egy függőségről el lehet dönteni, hogy következik-e a
+meglevőkből. 
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+Fennállnak-e az alábbi egyértelmű meghatározások?
+</p>
+<ul class="unIndentedList">
+	<li>
+	{rend_szám, kód} → {név, ár}<br />
+	igen; a bal oldal
+	meghatározza önmaga részeit, tehát a kódot is, ami pedig meghatározza a nevet
+	és árat
+	</li>
+</ul>
+<ul class="unIndentedList">
+	<li>
+	{rend_szám} → {darab}<br />
+	nem; a bal oldal semmit sem határoz meg egyértelműen
+	(a darabhoz szükséges a rend_számon túl a kód is)
+	</li>
+</ul>
+<ul class="unIndentedList">
+	<li>
+	{azon, kód} → {név, neve, mennyi}<br />
+	igen; a bal oldal egyik tagja az alkatrész nevét,
+	másik tagja a termék nevét, a két tag együtt pedig a szerkezet mennyiségét
+	határozza meg
+	</li>
+</ul>
+<ul class="unIndentedList">
+	<li>
+	{dátum, kód} → {rend_szám}<br />
+	nem; egy napra ugyanabból a termékből többen is
+	rendelhettek, vagyis a rend_szám nem egyértelmű (csak a rend_szám és kód
+	ismeretében biztos a dátum)
+	</li>
+</ul>
+<ul class="unIndentedList">
+	<li>
+	{rend_szám, kód} → {készlet}<br />
+	nem; a
+	készlethez ismerni kell az azonosítót, ami nincs a bal oldalon, és a bal oldal
+	semmilyen része sem határozza meg az azonosítót (rend_számtól függetlenül
+	bármelyik terméknek több alkotója lehet a szerkezet alapján, tehát nem
+	egyértelmű az alkotó aktuális készlete) 
+	</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p>
+<b>
+Készítsünk mintasorokat az adott adatbázisra!</b> 
+</p>
+<p>
+<b> </b>
+</p>
+<p>
+A legfontosabb megszorítás az, hogy az egyes táblákban a kulcstartalom
+csak egyszer fordulhat elő (összetett kulcs esetén
+az összefűzött jelsorozat egyedi), majd az adatbázis épsége miatt a külső
+kulcsok tartalma csak olyan érték lehet, ami már létezik abban a táblában
+kulcsként, ahova mutat. 
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>TERMÉK</b>
+</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="width: 98px" align="center" valign="middle">
+			<p align="center">
+			<b>kód</b>
+			</p>
+			</td>
+			<td style="width: 98px" align="center" valign="middle">
+			<p align="center">
+			<b>név</b>
+			</p>
+			</td>
+			<td style="width: 98px" align="center" valign="middle">
+			<p align="center">
+			<b>ár</b>
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 98px" align="center" valign="middle">
+			<p>
+			111
+			</p>
+			</td>
+			<td style="width: 98px" align="center" valign="middle">
+			<p>
+			termék1
+			</p>
+			</td>
+			<td style="width: 98px" align="center" valign="middle">
+			<p align="right">
+			2000
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 98px" align="center" valign="middle">
+			<p>
+			123
+			</p>
+			</td>
+			<td style="width: 98px" align="center" valign="middle">
+			<p>
+			termék2
+			</p>
+			</td>
+			<td style="width: 98px" align="center" valign="middle">
+			<p align="right">
+			2000
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 98px" align="center" valign="middle">
+			<p>
+			134
+			</p>
+			</td>
+			<td style="width: 98px" align="center" valign="middle">
+			<p>
+			termék3
+			</p>
+			</td>
+			<td style="width: 98px" align="center" valign="middle">
+			<p align="right">
+			15000
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 98px" align="center" valign="middle">
+			<p>
+			141
+			</p>
+			</td>
+			<td style="width: 98px" align="center" valign="middle">
+			<p>
+			termék4
+			</p>
+			</td>
+			<td style="width: 98px" align="center" valign="middle">
+			<p align="right">
+			45000
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 98px" align="center" valign="middle">
+			<p>
+			156
+			</p>
+			</td>
+			<td style="width: 98px" align="center" valign="middle">
+			<p>
+			termék5
+			</p>
+			</td>
+			<td style="width: 98px" align="center" valign="middle">
+			<p align="right">
+			1890
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 98px" align="center" valign="middle">
+			<p>
+			176
+			</p>
+			</td>
+			<td style="width: 98px" align="center" valign="middle">
+			<p>
+			termék7
+			</p>
+			</td>
+			<td style="width: 98px" align="center" valign="middle">
+			<p align="right">
+			5600
+			</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+&nbsp;
+</p>
+<p>
+<b>
+RENDELÉS</b>
+</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="width: 128px" align="center" valign="middle">
+			<p align="center">
+			<b>rendszám</b>
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p align="center">
+			<b>kód</b>
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p align="center">
+			<b>darab</b>
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p align="center">
+			<b>dátum</b>
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 128px" align="center" valign="middle">
+			<p>
+			977889
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p>
+			123
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p>
+			3
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p align="right">
+			97.02.12
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 128px" align="center" valign="middle">
+			<p>
+			977889
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p>
+			134
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p>
+			1
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p align="right">
+			97.02.12
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 128px" align="center" valign="middle">
+			<p>
+			977890
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p>
+			156
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p>
+			2
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p align="right">
+			97.02.23
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 128px" align="center" valign="middle">
+			<p>
+			977891
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p>
+			134
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p>
+			1
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p align="right">
+			97.03.11
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 128px" align="center" valign="middle">
+			<p>
+			977891
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p>
+			141
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p>
+			5
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p align="right">
+			97.02.23
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 128px" align="center" valign="middle">
+			<p>
+			977891
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p>
+			176
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p>
+			3
+			</p>
+			</td>
+			<td style="width: 128px" align="center" valign="middle">
+			<p align="right">
+			97.02.23
+			</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+&nbsp;
+</p>
+<p>
+<b>
+ALKATRÉSZ</b>
+</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			<b>azon</b>
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			<b>neve</b>
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			<b>me</b>
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			<b>eár</b>
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			<b>készl</b>
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			12333
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			alkatrész12
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			kg
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			1200
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			30
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			23230
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			alkatrész23
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			l
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			90
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			12
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			34555
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			alkatrész34
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			db
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			450
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			21
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			44555
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			alkatrész44
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			m
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			5600
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			19
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			56789
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			alkatrész56
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			kg
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			380
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			120
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			87900
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			alkatrész87
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			g
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			12
+			</p>
+			</td>
+			<td style="width: 95px" align="center" valign="middle">
+			<p>
+			51
+			</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+&nbsp;
+</p>
+<p>
+<b>
+SZERKEZET</b>
+</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td align="center" valign="top" width="88">
+			<p>
+			<b>kód</b>
+			</p>
+			</td>
+			<td align="center" valign="top" width="125">
+			<p>
+			<b>azon</b>
+			</p>
+			</td>
+			<td align="center" valign="top" width="112">
+			<p>
+			<b>mennyi</b>
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="88">
+			<p>
+			123
+			</p>
+			</td>
+			<td align="center" valign="top" width="125">
+			<p>
+			56789
+			</p>
+			</td>
+			<td align="center" valign="top" width="112">
+			<p>
+			2.50
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="88">
+			<p>
+			123
+			</p>
+			</td>
+			<td align="center" valign="top" width="125">
+			<p>
+			34555
+			</p>
+			</td>
+			<td align="center" valign="top" width="112">
+			<p>
+			0.25
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="88">
+			<p>
+			134
+			</p>
+			</td>
+			<td align="center" valign="top" width="125">
+			<p>
+			12333
+			</p>
+			</td>
+			<td align="center" valign="top" width="112">
+			<p>
+			1.30
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="88">
+			<p>
+			134
+			</p>
+			</td>
+			<td align="center" valign="top" width="125">
+			<p>
+			56789
+			</p>
+			</td>
+			<td align="center" valign="top" width="112">
+			<p>
+			3.00
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="88">
+			<p>
+			134
+			</p>
+			</td>
+			<td align="center" valign="top" width="125">
+			<p>
+			44555
+			</p>
+			</td>
+			<td align="center" valign="top" width="112">
+			<p>
+			0.75
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="88">
+			<p>
+			134
+			</p>
+			</td>
+			<td align="center" valign="top" width="125">
+			<p>
+			23230
+			</p>
+			</td>
+			<td align="center" valign="top" width="112">
+			<p>
+			0.10
+			</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+&nbsp;
+</p>
+<p>
+A mintasorokból kiolvasható, hogy pillanatnyilag:
+</p>
+<ul class="unIndentedList">
+	<li>
+	7-féle terméket és 6-féle alkatrészt tartunk
+	nyilván</li>
+	<li>
+	a 123-as termék 2, a 134-es pedig 4 alkotóból
+	áll</li>
+	<li>
+	az 56789-es alkatrész 2 termékbe is beépül</li>
+	<li>
+	valójában 3 rendelés tételeit látjuk: a
+	977889-es rendelésszámon 2 terméket, a 977890-esen 1-et és a 977891-esen 3
+	tételt kértek</li>
+	<li>
+	a 134-es termékről 2 megrendelés is szól; az
+	egyik 97.02.12-re 1 db, a másik 97.03.11-re 1db</li>
+	<li>
+	minden alkatrészből nullánál nagyobb készlet van
+	a megfelelő mértékegység szerint</li>
+	<li>
+	valójában a termék- és alkatrésznevek
+	semmitmondóak, de szintén egyediek 
+	</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p>
+Lehetséges kimenet a mintasorok
+alapján:
+</p>
+<p align="center">
+&nbsp;
+</p>
+<div align="center">
+</div>
+<p align="center">
+<!--[if gte vml 1]>
+<![endif]-->
+</p>
+<div align="center">
+</div>
+<table align="center" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td align="center" height="1" width="17"> </td>
+		</tr>
+		<tr>
+			<td> </td>
+			<td bgcolor="silver" height="248" width="566">
+			<table cellpadding="0" cellspacing="0" width="100%">
+				<tbody>
+					<tr>
+						<td>
+						<p>
+						A '97.02.12 - re rendelt termékek alkatrészigénye :
+						</p>
+						<p>
+						&nbsp;
+						</p>
+						<p>
+						1.3             kg               alkatrész12
+						</p>
+						<p>
+						0.1             l                  alkatrész23
+						</p>
+						<p>
+						0.75           db              alkatrész34
+						</p>
+						<p>
+						0.75           m                alkatrész44
+						</p>
+						<p>
+						10.5           kg               alkatrész56
+						</p>
+						<p>
+						&nbsp;
+						</p>
+						<p>
+						Ennek önköltsége :              10096.50  Ft
+						</p>
+						<p>
+						Várható árbevétel :              21000.00  Ft
+						</p>
+						<p>
+						&nbsp;
+						</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<div align="center">
+</div>
+<p align="center">
+&nbsp;
+</p>
+<div align="center">
+</div>
+<p>
+Az
+adatbázisból (mintasoraitól függetlenül) sokféle lekérdezést készíthetünk,
+egyelőre saját algoritmusunkat követve, mely inkább a hagyományos fájlkezelést
+imitálná, mint az SQL nyelvet. Pl.
+</p>
+<ul class="unIndentedList">
+	<li>
+	melyik termékből rendelték eddig a legkevesebbet</li>
+	<li>
+	adott napra miből mennyit kell elkészíteni</li>
+	<li>
+	melyik alkatrész a leggyakoribb az alkotók
+	között</li>
+	<li>
+	adott termékből maximum hány készíthető el a
+	pillanatnyi készletek alapján</li>
+	<li>
+	a holnapra elkészítendő megrendelésekhez mennyi
+	hiányzik a szükséges alkotókból</li>
+	<li>
+	az egyes termékek által hozott haszon
+	(árbevétel-önköltség)</li>
+	<li>
+	a legdrágább termék</li>
+	<li>
+	a legköltségesebb termék</li>
+	<li>
+	minden termék legdrágább alkotója</li>
+	<li>
+	a legforgalmasabb nap (amikorra a legtöbb
+	megrendelés szólt)</li>
+	<li>
+	az a nap, amikorra csak egyféle terméket kellett
+	készíteni</li>
+	<li>
+	mihez kell egy adott nevű alkatrész</li>
+	<li>
+	mi a szerkezete egy adott nevű terméknek 
+	</li>
+</ul>
+<p>
+(A
+lekérdezéseket a következő részben SQL-ben meg fogjuk tudni oldani.) 
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+Bővítsük a fenti adatbázist (legyen CUKRÁSZDA) azokkal a
+mintasorokkal, amelyek a következő eseményt
+tükrözik:<br />
+<b>„A mai napon két vevő is rendelt holnapra 1 Dobostortát, de az egyik
+még 2 adag Sarokházat is kért.&quot;</b> 
+</p>
+<p>
+A feladat 2 termékről és 2 rendelésről szól, melyből az
+egyik 1, a
+másik 2 tételből áll. A 2 termék receptje nem került említésre, ezért
+tetszőlegesen készítjük azt el. Az az információ, hogy a mai napon vesszük fel a rendelést,
+nem tárolódik, hiszen fizikai sorrendben kerülnek fel a rendeléstételek, melyek
+elkészülésének csak a dátuma lényeges az ügyvitelben.) 
+</p>
+<p>
+A termékek (cukrászkészítmények)
+kódját mi generáljuk, az árat tetszőlegesen választjuk: 
+</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td align="center" valign="top" width="98">
+			<p>
+			<b>kód</b>
+			</p>
+			</td>
+			<td align="center" valign="top" width="131">
+			<p>
+			<b>név</b>
+			</p>
+			</td>
+			<td align="center" valign="top" width="115">
+			<p>
+			<b>ár</b>
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="98">
+			<p>
+			101
+			</p>
+			</td>
+			<td align="center" valign="top" width="131">
+			<p>
+			Dobostorta
+			</p>
+			</td>
+			<td align="center" valign="top" width="115">
+			<p>
+			2200
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="98">
+			<p>
+			106
+			</p>
+			</td>
+			<td align="center" valign="top" width="131">
+			<p>
+			Sarokház
+			</p>
+			</td>
+			<td align="center" valign="top" width="115">
+			<p>
+			550
+			</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+A recept leírásához előbb az alkotókat kell felvenni,
+melyek leíróinak értéke ugyancsak tetszőleges: 
+</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td align="center" valign="top" width="95">
+			<p>
+			<b>azon</b>
+			</p>
+			</td>
+			<td align="center" valign="top" width="131">
+			<p>
+			<b>neve</b>
+			</p>
+			</td>
+			<td align="center" valign="top" width="80">
+			<p>
+			<b>me</b>
+			</p>
+			</td>
+			<td align="center" valign="top" width="83">
+			<p>
+			<b>eár</b>
+			</p>
+			</td>
+			<td align="center" valign="top" width="83">
+			<p>
+			<b>készl</b>
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="95">
+			<p>
+			12345
+			</p>
+			</td>
+			<td align="center" valign="top" width="131">
+			<p>
+			cukor
+			</p>
+			</td>
+			<td align="center" valign="top" width="80">
+			<p>
+			kg
+			</p>
+			</td>
+			<td align="center" valign="top" width="83">
+			<p>
+			180
+			</p>
+			</td>
+			<td align="center" valign="top" width="83">
+			<p>
+			30
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="95">
+			<p>
+			23456
+			</p>
+			</td>
+			<td align="center" valign="top" width="131">
+			<p>
+			liszt
+			</p>
+			</td>
+			<td align="center" valign="top" width="80">
+			<p>
+			kg
+			</p>
+			</td>
+			<td align="center" valign="top" width="83">
+			<p>
+			90
+			</p>
+			</td>
+			<td align="center" valign="top" width="83">
+			<p>
+			42
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="95">
+			<p>
+			34567
+			</p>
+			</td>
+			<td align="center" valign="top" width="131">
+			<p>
+			tejszín
+			</p>
+			</td>
+			<td align="center" valign="top" width="80">
+			<p>
+			dl
+			</p>
+			</td>
+			<td align="center" valign="top" width="83">
+			<p>
+			110
+			</p>
+			</td>
+			<td align="center" valign="top" width="83">
+			<p>
+			20
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="95">
+			<p>
+			45678
+			</p>
+			</td>
+			<td align="center" valign="top" width="131">
+			<p>
+			csokoládé
+			</p>
+			</td>
+			<td align="center" valign="top" width="80">
+			<p>
+			dkg
+			</p>
+			</td>
+			<td align="center" valign="top" width="83">
+			<p>
+			5
+			</p>
+			</td>
+			<td align="center" valign="top" width="83">
+			<p>
+			100
+			</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+A recept legyen (természetesen már létező termékkódokkal
+illetve alkatrész-azonosítókkal) pl.: 
+</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td align="center" valign="top" width="88">
+			<p>
+			<b>kód</b>
+			</p>
+			</td>
+			<td align="center" valign="top" width="125">
+			<p>
+			<b>azon</b>
+			</p>
+			</td>
+			<td align="center" valign="top" width="112">
+			<p>
+			<b>mennyi</b>
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="88">
+			<p>
+			101
+			</p>
+			</td>
+			<td align="center" valign="top" width="125">
+			<p>
+			12345
+			</p>
+			</td>
+			<td align="center" valign="top" width="112">
+			<p>
+			1.00
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="88">
+			<p>
+			101
+			</p>
+			</td>
+			<td align="center" valign="top" width="125">
+			<p>
+			23456
+			</p>
+			</td>
+			<td align="center" valign="top" width="112">
+			<p>
+			1.00
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="88">
+			<p>
+			101
+			</p>
+			</td>
+			<td align="center" valign="top" width="125">
+			<p>
+			45678
+			</p>
+			</td>
+			<td align="center" valign="top" width="112">
+			<p>
+			5.50
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="88">
+			<p>
+			106
+			</p>
+			</td>
+			<td align="center" valign="top" width="125">
+			<p>
+			34567
+			</p>
+			</td>
+			<td align="center" valign="top" width="112">
+			<p>
+			5.00
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="88">
+			<p>
+			106
+			</p>
+			</td>
+			<td align="center" valign="top" width="125">
+			<p>
+			45678
+			</p>
+			</td>
+			<td align="center" valign="top" width="112">
+			<p>
+			15.00
+			</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+&nbsp;
+</p>
+<p>
+A rendeléstételek (ha pl. a mai
+dátum 2001.12.09.): 
+</p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td align="center" valign="top" width="128">
+			<p>
+			<b>rendszám</b>
+			</p>
+			</td>
+			<td align="center" valign="top" width="99">
+			<p>
+			<b>kód</b>
+			</p>
+			</td>
+			<td align="center" valign="top" width="74">
+			<p>
+			<b>darab</b>
+			</p>
+			</td>
+			<td align="center" valign="top" width="102">
+			<p>
+			<b>dátum</b>
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="128">
+			<p>
+			018821
+			</p>
+			</td>
+			<td align="center" valign="top" width="99">
+			<p>
+			101
+			</p>
+			</td>
+			<td align="center" valign="top" width="74">
+			<p>
+			1
+			</p>
+			</td>
+			<td align="center" valign="top" width="102">
+			<p>
+			01.12.10
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="128">
+			<p>
+			018821
+			</p>
+			</td>
+			<td align="center" valign="top" width="99">
+			<p>
+			106
+			</p>
+			</td>
+			<td align="center" valign="top" width="74">
+			<p>
+			2
+			</p>
+			</td>
+			<td align="center" valign="top" width="102">
+			<p>
+			01.12.10
+			</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="128">
+			<p>
+			018822
+			</p>
+			</td>
+			<td align="center" valign="top" width="99">
+			<p>
+			101
+			</p>
+			</td>
+			<td align="center" valign="top" width="74">
+			<p>
+			1
+			</p>
+			</td>
+			<td align="center" valign="top" width="102">
+			<p>
+			01.12.10
+			</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+&nbsp;
+</p>
+<p>
+&nbsp;
+</p>
+</div><br/>
+</div>
+</div>
+</div>
+<div class="objectivesIdevice" id="id35">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle">Kulcsszavak a fejezetben:</span>
+<div class="iDevice_inner">
+<div id="ta35_55_4" class="block" style="display:block">mintasorok készítése
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="27_adatbzis_rtelmezse.html">&laquo; Előző</a> | <a href="28_adatbzis_bvtse.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

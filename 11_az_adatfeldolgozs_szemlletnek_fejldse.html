@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 1.1. Az adatfeldolgozás szemléletének fejlődése </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div id="subnav" class="withoutChild">
+<div id="active" class="withoutChild">1.1. Az adatfeldolgozás szemléletének fejlődése</div>
+<div><a href="12_adat_informci.html" class="withoutChild">1.2. Adat, információ</a></div>
+<div><a href="13_adatmodellek_alapelemek.html" class="withChild">1.3. Adatmodellek, alapelemek</a></div>
+</div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">1.1. Az adatfeldolgozás szemléletének fejlődése</p></div>
+<div class="objectivesIdevice" id="id2">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta2_23_4" class="block" style="display:block"><p>
+Az adatbázisok lényege
+érthetőbb, ha áttekintjük az adatfeldolgozás fejlődésének
+útját.
+</p>
+<p>
+Az információk kijelentéseket tartalmaznak a valós világ
+összetevőiről, a képzetes mennyiségeiről, valamint fogalmairól. (Az információt
+gyakran együtt értik a hordozójával.) Legkisebb egységei a szavak
+(adat-előfordulások). Az adatok csak más adatokkal együtt képeznek értelmes
+kijelentéseket. Minden adat lehetséges értelmezését annak típusa határozza meg,
+értéke pedig az adat pillanatnyi állapota. Az adatokat bizonyos szabályok
+betartása mellett általában felírhatjuk nullák vagy egyesek sorozataival. Ez
+képezi a kettes számrendszerbeli digitális adattárolás alapját. 
+</p>
+<p>
+Az algoritmusok a számítási,
+tágabb értelemben adatfeldolgozó eljárások mikéntjét
+fogalmazzák meg - nagyrészt tekintet nélkül az adott feladat pillanatnyi
+adatértékeire. Neumann János egyik fontos újítása volt a számítástudományban,
+hogy a számítási eljárásokat is információknak tekintette. 
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+Adatokat nagy tömegben mágneses háttértárolókon tárolunk,
+melyekhez a programok az operációs rendszeren keresztül férnek hozzá. Az
+összetartozó adatok állományokba (fájlokba) vannak szervezve, melyek
+rekordokból épülnek fel. A rekordon belül rendszerint az azonos adattípusú
+adatok azonos sorrendben követik egymást.
+</p>
+<p>
+Az adatállományokon végzett alapműveleteket 1969-ben
+szabványosították a Cobol nyelv leírásának keretében. Az ott rögzítetteket
+azóta sokféle programozási nyelvben, fájlkezelő rendszerben alkalmazták. 
+</p>
+<p>
+A rekordokra vonatkozó négy alapművelet: olvasás, írás,
+visszaírás, törlés. 
+</p>
+<p>
+Az adatállományok rekordjaihoz való hozzáférés háromféle
+lehet: sorfolytonos, közvetlen cím szerinti, indexelt.
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+Egyre inkább követelmény
+lett, hogy ugyanazokhoz az adatokhoz egyidőben több alkalmazás is hozzáférjen.
+Az adatok adattípusaik szerinti értelmezéséhez, valamint az értékekre vonatkozó
+szabályokhoz szükségessé vált egy katalógus (adatszótár). További igényt támasztott az, hogy ezen katalógus
+megkerülésével senki se férjen az adatokhoz. Ez megkövetelte a négy
+adatkezelési alapművelet kibővítését illetve szigorítását. Az adatbázisok lényege tehát az adatkatalógusok és az azokra
+támaszkodó adatkezelő rendszerek jelenléte. 
+</p>
+<p>
+(Stolnicki Gyula: SQL kézikönyv, ComputerBooks 1995.)
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+Lényegében az
+adatbázis nem más, mint hosszú ideig meglévő információk gyűjteménye, amelyet egy adatbázis-kezelő rendszer kezel.
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+Egy ilyen rendszerrel szemben az alábbi elvárásaink vannak:
+</p>
+<ul>
+	<li>Tegye lehetővé a felhasználó számára új
+	adatbázis létrehozását.</li>
+	<li>Engedje meg a felhasználónak az adatok
+	lekérdezését, módosíthatóságát.</li>
+	<li>Támogassa nagy mennyiségű adat hosszú ideig való
+	tárolását, garantálja az adatok biztonságát, és tegye lehetővé a hatékony
+	adathozzáférést.</li>
+	<li>Felügyelje a több felhasználó által egyidőben
+	történő adathozzáféréseket, és ezek
+	ne vezessenek az adatok következetlenné válásához. </li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p>
+Az első adatbázis-kezelő rendszerek a hatvanas években
+kezdtek megjelenni. Ezek a fájlkezelő rendszerekből alakultak ki, amelyek a
+fenti pontok egyikének sem feleltek
+meg maradéktalanul. Az első rendszerek arra ösztönözték a felhasználót, hogy az
+adatokat olyan vizuális formában ábrázolja, ahogyan azok tárolva vannak. A
+legfontosabb modellek a hálós és hierarchikus modellek voltak, amelyek gráffal
+ábrázolták az adatokat. Ez utóbbit egy Adatrendszerekkel és Nyelvekkel Foglalkozó
+Bizottság szabványosította. Ezen korai modellek hátránya az volt, hogy
+semmilyen magas szintű lekérdező nyelvet nem támogattak. 
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+Ted Codd 1970-ben publikálta híres cikkét, amelyben azt
+javasolta, hogy az adatbázis-rendszereknek az adatokat a felhasználó felé
+táblázatok formájában kellene megjeleníteni: ezeket a táblákat nevezzük
+relációknak. Ellentétben a korábbi rendszerekkel, egy relációs rendszer
+felhasználójának nem kell törődnie az adatok tárolási struktúrájával. A
+lekérdezések olyan magas szintű nyelv segítségével fejezhetők ki, amelyek
+használata jelentősen növeli a programozói hatékonyságot. 
+</p>
+<p>
+Az IBM volt az első cég, amely relációs és korábbi
+modelleket támogató adatbázis-kezelő rendszereket is árusított. Később számos
+újabb cég alakult, amely relációs adatbázis-kezelők megvalósításával és
+árusításával foglalkozott. Ma már ezek közül néhányan a világ vezető
+szoftverkereskedő cégei közé tartoznak. 
+</p>
+<p>
+(Ullman - Widom: Adatbázis-rendszerek alapvetés nyomán)
+</p>
+</div><br/>
+</div>
+</div>
+</div>
+<div class="objectivesIdevice" id="id3">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> Kulcsszavak a fejezetben</span>
+<div class="iDevice_inner">
+<div id="ta3_24_4" class="block" style="display:block">adatbázis
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="1_adatbzisok.html">&laquo; Előző</a> | <a href="12_adat_informci.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

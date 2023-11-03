@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 8.6. Könyvtár </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="81_tanfolyamszervezs.html" class="withoutChild">8.1. Tanfolyamszervezés</a></div>
+<div><a href="82_raktr.html" class="withoutChild">8.2. Raktár</a></div>
+<div><a href="83_szlloda.html" class="withoutChild">8.3. Szálloda</a></div>
+<div><a href="84_szervz.html" class="withoutChild">8.4. Szervíz</a></div>
+<div><a href="85_zldsges.html" class="withoutChild">8.5. Zöldséges</a></div>
+<div id="active" class="withoutChild">8.6. Könyvtár</div>
+</div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">8.6. Könyvtár</p></div>
+<div class="objectivesIdevice" id="id80">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta80_40_4" class="block" style="display:block">
+<p>
+A példa érdekessége az adatbázis
+mérete illetve az adatfolyamatok részletezése. A mintasoros illusztrációk miatt
+feltétlen javasolt a tanulmányozása. Itt összefoglaljuk, miből születtek
+az adatbázis-táblák, milyen a kapcsolati diagramja, és tárgyaljuk a
+legszükségesebb felhasználói funkciók adatfolyamatait. 
+</p>
+<p>
+<b>Ismertetés</b>
+</p>
+<p>
+Egy könyvtár
+</p>
+<ul class="unIndentedList">
+	<li>
+	beszerez új könyveket (ugyanabból a könyvből
+	több példányt)</li>
+	<li>
+	selejtezi az elhasznált példányokat (bizonyos
+	idő elteltével automatikusan vagy direkt)</li>
+	<li>
+	karbantartja, ezért le tudja kérdezni a könyvek
+	adatait, mint : kölcsönözhetőség, műfaj, kiadó, kiadás éve, egy vagy több
+	szerző, kezdő és aktuális darabszám, egységár és szorzó, kölcsönzések javasolt
+	száma, recenzió, néhány utalás, mely sorozat része</li>
+	<li>
+	kezeli az olvasók alapadatait, mint: születési
+	év, foglalkozás, név, cím</li>
+	<li>
+	kölcsönzéseket bonyolít, azaz: kiad,
+	visszavételez, felszólít (2-szer, a 3. már büntetés); előjegyzést vesz fel,
+	értesít</li>
+	<li>
+	statisztikai kimutatásokat végez legalább évente</li>
+	<li>
+	forgalmi listákat hoz le adott szempontok
+	szerint bármilyen sűrűséggel </li>
+</ul>
+<p>
+A fentiekből látszik, hogy egy
+bizonyos könyv <i>n</i> számú példányát csak
+a kölcsönzéskor különböztetjük meg. Mind az <i>n</i>
+darabnak ugyanazok a fentebb felsorolt adatai, de az már a konkrét darab
+jellemzője, hogy kinél van, vagy hányszor kölcsönözték ki.
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>Pontosítások</b>
+</p>
+<p>
+Egy bizonyos könyvet írhatott több szerző, és egy szerzőnek több
+műve is lehet, ezért új relációt hozunk létre a szerzők és könyvek közé. A
+könyvek általában egyszerzősek, ezért felmerül a kérdés, hogy csak a többi
+szerzőt rakjuk-e a köztes relációba. Mivel gyorsan akarunk szerző szerint
+keresni, nem szabad 2 külön sorrendet fenntartani, hiszen akkor előbb össze
+kellene azokat fésülni. Egy bizonyos könyv utalhat több fogalomra és fordítva. Ezért
+itt is köztes relációba rakjuk le az utalásokat. Bizonyos könyvnek egy kiadója van, egyetlen sorozatnak a
+része, és fordítva nem igaz. Ilyen esetben a könyvnél jegyezzük meg a kiadó és
+a sorozat kódját, de megnevezésüket (a több könyvhöz való tartozásuk miatt) a
+kiadó- illetve sorozattörzsben tároljuk. 
+</p>
+<ul>
+	<li>A beszerzés bizonylatolása a raktárnyilvántartó rendszer
+	része, itt most inputként kapjuk a
+	katalógusszámot a példányszámmal. (Valószínűleg év+sorszám alakban osztanak
+	katalógusszámot.) Nálunk történik az
+	egyetlen példány azonosítása, azaz a katalógusszám kibővítése
+	alkatalógusszámmal (sorszám: 1-től példányszámig). </li>
+	<li>A tagdíj befizetését nem kötelező bizonylatolni, hiszen a
+	kölcsönzőívbe pecsételés jelzi az azévi befizetést. Amikor adott évben először
+	jelenik meg az olvasó, akkor fizet majd. A program így is jelezni tudja, ha
+	tagdíjat kell szedni. Új olvasó, új ív, azaz tagdíj. </li>
+	<li>Egy olvasónak egy foglalkozása van, de ugyanaz a foglakozása
+	több olvasónak is lehet. Tehát lesz foglalkozástörzsünk, és minden olvasó
+	törzsadatai között jelöljük meg az ő foglalkozáskódját. </li>
+	<li>Ha bizonyos könyv egyetlen példánya sincs bent, előjegyezzük
+	az olvasót, és érkezési sorrendben próbáljuk kielégíteni a kérését. </li>
+	<li>A lejáratvizsgálat abból áll, hogy a konstansként kezelt változók ismeretében (pl. 30 napos
+	kölcsönzési idő, a felszólítások - számuk 3 - további 15 napot jelentenek, de a
+	3. már a büntetéskiírás) ellenőrizzük a kölcsönzési dátum óta eltelt időt. Ha a
+	példány elveszett, kikerül a kölcsönözhetők közül. </li>
+	<li>Legyen a büntetés nagysága = egységár*szorzó, amiről értesítést küldünk
+	(de az összeg beérkezését a pénzügyi
+	osztály figyeli).</li>
+	<li>Automatikus selejtezés-vizsgálat időszakosan történik, de a konkrét példány állapota is vezethet
+	selejtezéshez.</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p>
+<b>Azonosítások:</b>
+</p>
+<ul>
+	<li>katal,
+	az „eszmei&quot; könyv</li>
+	<li>alkatal, egyetlen
+	példánya valamely könyvnek</li>
+	<li>kiadó,
+	adott kiadó</li>
+	<li>sorozat,
+	adott sorozat</li>
+	<li>fogalom,
+	utalásbeli fogalom</li>
+	<li>szerző,
+	konkrét szerző</li>
+	<li>olvasó,
+	egy olvasó (kölcsönzőív jelzőszáma)</li>
+	<li>foglalk,
+	egyfajta foglalkozás</li>
+	<li>műfaj,
+	egyetlen karakter (0 - 9); világszabvány</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p>
+A fentiek szerint igazak az alábbi teljes függőségek:
+</p>
+{katal} →
+{cím, kiadó, kiadév, műfaj, kezdődarabszám, aktuális darabszám, egységár,
+szorzó, max kölcs.száma, recenzió, sorozat, kölcsönözhetőség}
+<br />
+<br />
+{katal, alkatal} →
+{kikölcsönözve, akt. kölcs. száma}   (ha
+megvan a példány)
+<br />
+{katal, alkatal} →
+{kelt, selejt/lopott}                                 (ha
+nincs meg a példány)
+<br />
+<br />
+{kiadó} →
+{megnevezés}
+<br />
+{sorozat} →
+{elnevezés}
+<br />
+{szerző} →
+{név}
+<br />
+{fogalom} →
+{hosszúnév}
+<br />
+{olvasó} →
+{név, cím, szület.év, foglalk}
+<br />
+{foglalk} →
+{elnevezés}
+<br />
+<br />
+{olvasó, katal} →
+{előjegyzés dátuma}
+<br />
+{olvasó, katal, alkatal, dátum} → {visszahozatal dátuma,
+felszólítások száma}
+<br />
+<br />
+{katal, szerző} →
+{katal, szerző}                                       („ki
+mit írt&quot; miatt)
+<br />
+{katal, fogalom} →
+{katal, fogalom}                                 („mi
+mire utal&quot; miatt) 
+<p>
+&nbsp;
+</p>
+<p>
+Az adatbázis az előbbi függőségek alapján: 
+</p>
+<ul>
+	<li>
+	<b>KÖNYV</b> {<u>katal</u>,
+	cím, kiadó, kiadév, műfaj, kezd_db, akt_db, egys_ár, szorzó, max_kölcs,
+	recenzió, sorozat, kölcs_h}</li>
+	<li>
+	<b>KIADÓ</b> {<u>kiadó</u>,
+	megnevezés}</li>
+	<li>
+	<b>SOROZAT</b> {<u>sorozat</u>,
+	elnevezés}</li>
+	<li>
+	<b>KIMITIRT</b> {<u>katal,
+	szerző</u>}</li>
+	<li>
+	<b>SZERZŐ</b> {<u>szerző</u>,
+	név}</li>
+	<li>
+	<b>UTALÁS</b> {<u>katal,
+	fogalom</u>}</li>
+	<li>
+	<b>FOGALOM</b> {<u>fogalom</u>,
+	hosszúnév}</li>
+	<li>
+	<b>PÉLDÁNY</b> {<u>katal,
+	alkatal</u>, kikölcs, akt_kölcs}</li>
+	<li>
+	<b>OLVASÓ</b> {<u>olvasó</u>,
+	név, cím, szül_év, foglalk}</li>
+	<li>
+	<b>FOGLALKOZÁS</b> {<u>foglalk</u>,
+	elnevezés}</li>
+	<li>
+	<b>KÖLCSÖNZÉS </b>{<u>olvasó,
+	katal, alkatal, dátum</u>, visszahoz_dát, felszólít}</li>
+	<li>
+	<b>ELŐJEGYZÉS</b> {<u>olvasó,
+	katal</u>, előjegyz_dát}</li>
+	<li>
+	<b>NINCS</b> {<u>katal,
+	alkatal</u>,kelt, sel_lop}
+	</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p>
+Kapcsolati ábra:
+</p>
+<p>
+<!--[if gte vml 1]>
+<![endif]--><img src="image015.1.jpg" v:shapes="_x0000_i1025" height="301" width="448" />
+</p>
+<p>
+<b>
+Megjegyzések:</b>
+</p>
+<ul>
+	<li>
+	a Kölcsönzés csak Példányt tartalmazhat, a
+	Példány pedig Könyvet, de azért egy Kölcsönzés automatikusan meghatároz egy
+	Könyvet (pl. lekérdezésnél kihagyható a Példány)
+	</li>
+	<li>
+	a Példány és Nincs közötti 1:1 kapcsolat nem
+	tűnik igaznak, mert a 2 tábla egymást kizáró példányokat tartalmazhat csak
+	(vagy részt vesz még a kölcsönzésben, vagy már nem), de amikor egy Példány
+	bekerül a Nincsbe, akkor léteznie kell Példányként,
+	csak utána törlődik a felhasználó szeme elől
+	</li>
+	<li>
+	a Nincs Példányra mutat, a Példány pedig
+	Könyvre, ezért a Nincs ugyancsak meghatároz közvetlenül egy Könyvet (pl.
+	lekérdezésnél kihagyható a Példány)
+	</li>
+	<li>
+	a lezárt kölcsönzéseket érdemes elrejteni szem
+	elől (törölt állapot bevezetése) vagy gondoskodni gyakori archiválásukról; így
+	a nyitott kölcsönzéseket gyorsabban ellenőrizzük a lejáratvizsgálatkor, illetve
+	találjuk meg visszahozatalnál.  
+	</li>
+</ul>
+<p>
+<b>
+Felhasználói funkciók (hierarchia nélkül):</b>
+</p>
+<ol>
+	<li>
+	Törzsek karbantartása
+	</li>
+	<li>
+	Könyvbeszerzés
+	</li>
+	<li>
+	Könyv kikölcsönzése
+	</li>
+	<li>
+	Könyv visszahozatala
+	</li>
+	<li>
+	Könyv leselejtezése
+	</li>
+	<li>
+	Könyv előjegyzése
+	</li>
+	<li>
+	Lejárati értesítők
+	</li>
+	<li>
+	Lekérdezések
+	</li>
+	<li>
+	Kimutatások  
+	</li>
+</ol>
+<b>
+</b>
+<p>
+<b>
+Adatfolyamatok nagyvonalú tárgyalása funkciónként</b> 
+</p>
+<p>
+<u> </u>
+</p>
+<ol>
+	<li>
+	KIADÓ,
+	SOROZAT, SZERZŐ, FOGALOM, FOGLALK mellett az OLVASÓ és a KÖNYV is ide tartozik,
+	de a könyv beszerzésének kiemelt
+	fontossága miatt bizonyára külön kezeljük.</li>
+	<li>
+	A KÖNYV
+	mellett a PÉLDÁNY bővül automatikusan, és bővülhetnek a KIADÓ és a SOROZAT,
+	biztosan bővül a KIMITÍRT (vele bővülhet a SZERZŐ) és az UTALÁS (vele pedig a
+	FOGALOM). <br />
+	<br />
+	<br />
+	</a></li>
+	<li>A KÖLCSÖNZÉS
+	bővítésekor bővülhet az OLVASÓ (vele pedig a FOGLALK), de kerülhet sor egy
+	ELŐJEGYZÉS törlésére is. 
+	<br />
+	</li>
+	<li>A KÖLCSÖNZÉS
+	módosításával jár automatikusan egy PÉLDÁNY módosítása, mert át kell billenteni
+	a könyv kölcsönzésre vonatkozó állapotát. 
+	<br />
+	</li>
+	<li>A NINCSbe
+	felveszünk, a PÉLDÁNYból törlünk egy sort, a KÖNYVben ugyanakkor módosítunk
+	(aktuális darabszámot). 
+	<br />
+	</li>
+	<li>Az ELŐJEGYZÉS
+	bővül, de ennek szigorú feltétele, hogy minden PÉLDÁNYa ki legyen éppen
+	kölcsönözve. 
+	<br />
+	</li>
+	<li>A 3-féle
+	értesítő nyomtatása lekérdezéssel oldható meg; olvasunk a KÖLCSÖNZÉS, KÖNYV,
+	OLVASÓ táblákból, miközben a felszólítások számát eggyel megnöveljük (tehát a
+	KÖLCSÖNZÉS módosul). Viszont abban az esetben, ha a felszólítások száma 3-ra
+	ugrik, lopást regisztrálunk (ld. teendők a selejtezésnél).<br />
+	<br />
+	</li>
+	<li>Olvasunk a
+	megfelelő táblákból</li>
+	<li>Olvasunk a
+	megfelelő táblákból 
+	</li>
+</ol>
+<p>
+<b> </b>
+</p>
+<p>
+<b> </b>
+</p>
+<p>
+<b> </b>
+</p>
+<p>
+<b> </b>
+</p>
+<p>
+<b> </b>
+</p>
+<p>
+<b> </b>
+</p>
+<p>
+<b> </b>
+</p>
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="85_zldsges.html">&laquo; Előző</a> | <a href="9_feladattr.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

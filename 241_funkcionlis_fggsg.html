@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 2.4.1. Funkcionális függőség </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div id="subnav" class="withoutChild">
+<div><a href="21_relci.html" class="withoutChild">2.1. Reláció</a></div>
+<div><a href="22_kulcsok.html" class="withoutChild">2.2. Kulcsok</a></div>
+<div><a href="23_jellsek.html" class="withChild">2.3. Jelölések</a></div>
+<div><a href="24_fggsgek.html" class="withChild">2.4. Függőségek</a></div>
+<div id="subnav" class="withoutChild">
+<div id="active" class="withoutChild">2.4.1. Funkcionális függőség</div>
+<div><a href="242_teljes_fggsg.html" class="withoutChild">2.4.2. Teljes függőség</a></div>
+<div><a href="243_tranzitv_fggsg.html" class="withoutChild">2.4.3. Tranzitív függőség</a></div>
+<div><a href="244_tesztkrdsek.html" class="withoutChild">2.4.4. Tesztkérdések</a></div>
+</div>
+<div><a href="25_normalizls.html" class="withoutChild">2.5. Normalizálás</a></div>
+<div><a href="26_adatbzis_tervezse.html" class="withoutChild">2.6. Adatbázis tervezése</a></div>
+<div><a href="27_adatbzis_rtelmezse.html" class="withChild">2.7. Adatbázis értelmezése</a></div>
+<div><a href="28_adatbzis_bvtse.html" class="withChild">2.8. Adatbázis bővítése</a></div>
+</div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">2.4.1. Funkcionális függőség</p></div>
+<div class="objectivesIdevice" id="id27">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"></span>
+<div class="iDevice_inner">
+<div id="ta27_45_4" class="block" style="display:block"> 
+<p>
+Legyen R{A<sub>1</sub>,
+A<sub>2</sub> ..., A<sub>n</sub> } egy reláció és P, Q az A attribútumhalmaz
+részhalmazai.
+</p>
+<p>
+Azt
+mondjuk, hogy P funkcionálisan meghatározza Q-t (vagy Q funkcionálisan függ
+P-től), ha abból, hogy a reláció valamely két sora megegyezik a P halmazon,
+következik, hogy a két sor értékei megegyeznek a Q halmazon is.
+</p>
+<p>
+Jele:   P→Q
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+Rendelésnyilvántartó
+példánkban az egyetlen tábla 11 tulajdonságból állt:
+</p>
+<p>
+RENDELÉS {rendszám, vkód, vevőnév, vevőcím, kelt, határidő,
+cikkszám, cikknév, egysár, rendmenny, összérték}<br />
+Legyen  P = {rendszám},  Q = {vkód, kelt, határidő, összérték}<br />
+Ekkor  P →Q teljesül, ugyanis ha ismert a
+rendszám (a rendelési bizonylat száma), akkor egyértelmű a vevő kódja, a
+bizonylat kelte, határideje és összértéke.
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+További funkcionális
+függőségek:
+</p>
+<p>
+{vkód} →{vevőnév, vevőcím}<br />
+{cikkszám} →{cikknév, egysár}<br />
+{rendszám,
+cikkszám} →{rendmenny}
+</p>
+<p>
+Tehát a vkód egyértelműen meghatározza a vevő törzsadatait,
+a cikkszám a cikk törzsadatait, de ahhoz, hogy egyértelmű legyen a rendelt
+mennyiség értéke, bizony ismerni kell, melyik bizonylat melyik tételéről van
+szó, tehát a rendszámot és a cikkszámot is.
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<font color="#008000"><b>Megjegyzés </b></font>
+</p>
+<p>
+<font color="#008000">A kulcs
+definíciójából következik, hogy a K kulcs funkcionálisan meghatározza:</font>
+</p>
+<ul class="unIndentedList">
+	<li><font color="#008000">
+	a „kulcson kívüli&quot; attribútumhalmazt</font></li>
+</ul>
+<p>
+<font color="#008000">példánkban:</font>
+</p>
+<p>
+<font color="#008000">{rendszám, cikkszám} → {vkód, vevőnév, vevőcím, kelt,
+határidő, cikknév, egysár, rendmenny, összérték}</font>
+</p>
+<ul type="disc">
+	<li><font color="#008000">az egész attribútumhalmazt<br />
+	K → A </font></li>
+</ul>
+<p>
+<font color="#008000">Rendelés-nyilvántartó
+adatbázisunkban ezen fejezet elején
+felsoroltunk 4 tapasztalható funkcionális függőséget:</font>
+</p>
+<ol>
+	<li><font color="#008000">{rendszám} → {vkód, kelt, határidő, összérték}</font></li>
+	<li><font color="#008000">{vkód} →{vevőnév, vevőcím}</font></li>
+	<li><font color="#008000">{cikkszám} → {cikknév, egysár}</font></li>
+	<li><font color="#008000">{rendszám, cikkszám} → {rendmenny}</font></li>
+</ol>
+<p>
+&nbsp;
+</p>
+<p>
+<b>Függőségi család</b><br />
+</p>
+<p>
+Egy
+adatbázisban lehet több olyan (P,Q) pár is, melyre P→Q. 
+</p>
+<p>
+Ezek
+halmazát az adatbázis funkcionális függőségi családjának hívjuk, és F-fel
+jelöljük
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>1. kérdés:</b><br />
+Ismert funkcionális
+függőségekből kikövetkeztethetők-e újabbak? 
+</p>
+<p>
+<b>A válasz:</b><br />
+Igen. Az ún.
+Armstrong-axiómák (szabályok) alapján.
+</p>
+<p>
+&nbsp;
+</p>
+<img src="9.jpg" height="266" width="375" />
+<p>
+&nbsp;
+</p>
+<p>
+<b>Alkalmazás:</b> 
+</p>
+<p>
+Mivel {rendszám} → {vkód, kelt, határidő, összérték}<br />
+és {vkód} → {vevőnév, vevőcím},<br />
+ezért a 6.
+és 3. szabály értelmében : {rendszám} → {vevőnév, vevőcím}
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>2. kérdés:<br />
+</b>Egy X → Y függőség kikövetkeztethető-e egy F családból
+az Armstrong-axiómák alkalmazásával ?
+</p>
+<p>
+<b>A válasz:</b><br />
+igen. A lezárt fogalmának
+segítségével.
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+Az <b>X<sup>+</sup></b> <b>(X
+lezártja F-re nézve)</b> azon Q attribútumok halmaza,
+amelyre az X→Q függőség az Armstrong-axiómák segítségével F-ből
+kikövetkeztethető.
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>A 2. kérdésre a válasz:</b>
+</p>
+<p>
+Az X→Y függőség akkor és csak akkor
+következik egy F függőségi családból az Armstrong-axiómák alapján, ha az Y
+részhalmaza az X lezártjának, azaz Y<img src="eXe_LaTeX_math_1.gif" exe_math_latex="eXe_LaTeX_math_1.gif.tex" exe_math_size="4" />X<sup>+</sup>.
+</p>
+<p>
+Ez valóban némi kerülőt jelent, hiszen az összes
+tulajdonságot kell összegyűjteni, amiket a bal oldal meg tud határozni, majd el
+kell dönteni, hogy a kérdéses jobb oldal közte van-e az előállított összesnek.
+De ez a módszer algoritmizálható, tehát egy számítógépes módszer lehet.
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>Példa </b>
+</p>
+<p>
+RENDELÉS {<u>rendszám</u>,
+vkód, vevőnév, vevőcím, kelt, határidő, <u>cikkszám</u>, cikknév, egysár,
+rendmenny, összérték}<br />
+adott az F függőségi család:<br />
+{rendszám} → {vkód, kelt, határidő, összérték}<br />
+{vkód} → {vevőnév, vevőcím}<br />
+{cikkszám} → {cikknév, egysár}<br />
+{rendszám,
+cikkszám} → {rendmenny}<br />
+Következik-e F-ből: {rendszám} → {vevőcím}
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+1. lépés: {rendszám}
+lezártjának meghatározása
+</p>
+<p>
+2. lépés: {vevőcím}
+részhalmaza-e a lezártnak
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>1. lépés:</b>
+</p>
+<p>
+Az X-ből
+indulunk ki és megnézzük, hogy az X részhalmazai melyik függőség bal oldalán
+fordulnak elő.
+</p>
+<p>
+X<sup>(0)</sup>
+= {rendszám}
+</p>
+<p>
+Ahol ilyet
+találunk, annak a jobb oldalát hozzávesszük a halmazunkhoz, és folytatjuk a
+részhalmazok keresését a függőségek bal oldalán.
+</p>
+<p>
+X<sup>(1) </sup>=
+{rendszám}<img src="eXe_LaTeX_math_2.gif" exe_math_latex="eXe_LaTeX_math_2.gif.tex" exe_math_size="4" />{vkód, kelt, határidő, összérték}
+</p>
+<p>
+X<sup>(2) </sup>=
+{rendszám, vkód, kelt, határidő, összérték} <img src="eXe_LaTeX_math_2.gif" exe_math_latex="eXe_LaTeX_math_2.gif.tex" exe_math_size="4" /> {vevőnév, vevőcím}
+</p>
+<p>
+X<sup>(3) </sup>=
+X<sup>(2) </sup>
+</p>
+<p>
+Az algoritmusnak akkor van vége, ha már nem bővül a
+halmazunk (maximum addig tart, amíg az összes, véges sok tulajdonság
+belekerül), azaz minden olyan tulajdonság belekerült, akiket az X egyértelműen
+meghatároz a F családból a szabályok segítségével. 
+</p>
+<p>
+Tehát :
+</p>
+<p>
+{rendszám}<sup>+</sup> = {rendszám, vkód, kelt, határidő, összérték, vevőnév,
+vevőcím}
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>2. lépés:</b>
+</p>
+<p>
+{vevőcím} <img src="eXe_LaTeX_math_1.gif" exe_math_latex="eXe_LaTeX_math_1.gif.tex" exe_math_size="4" />{rendszám}<sup>+</sup> igaz.
+</p>
+<p>
+<b>A kérdéses függőség tehát
+származtatható volt a megadott függőségekből.</b>
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>Relációk szétbontása</b><br />
+</p>
+<p>
+Módszereket
+dolgoztak ki arra, hogy a relációk szétbontása <b>veszteségmentes</b> legyen (a funkcionális függőségek
+megmaradjanak).
+</p>
+<p>
+<b>Cél</b>: A redundancia megszüntetése.
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+<b>Speciális funkcionális függőségek</b><br />
+</p>
+<p>
+Definiálnunk
+kell legalább az alábbi 3 speciális függőséget, de előtte felhívjuk a figyelmet
+arra, hogy létezésük kívánatos-e vagy sem.
+</p>
+<ul>
+	<li><b>teljes:            </b>jó</li>
+	<li><b>részleges:    </b>rossz</li>
+	<li><b>tranzitív:</b>       rossz</li>
+</ul>
+<p>
+&nbsp;
+</p>
+<p>
+Ezek
+segítségével tanulhatjuk meg a relációk szétbontásának veszteségmentes
+módszerét. Valójában a módszer a redundancia mértéket nagyban csökkenti
+(általában megszünteti), és óriási előnye, hogy algoritmizálható. Ebben a
+képzésben csak annyira mélyedünk el a módszerben, hogy a mások által
+megtervezett adatbázist felismerjük és megértsük az adatok több táblában való
+elhelyezését.
+</p>
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="24_fggsgek.html">&laquo; Előző</a> | <a href="242_teljes_fggsg.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>

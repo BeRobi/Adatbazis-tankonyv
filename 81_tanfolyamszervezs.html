@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created using eXe: http://exelearning.org -->
+<head>
+<style type="text/css">
+@import url(base.css);
+@import url(content.css);
+@import url(nav.css);</style>
+<title> 8.1. Tanfolyamszervezés </title>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="header"  style="background-image: url(alapfejlec.jpg); background-repeat: no-repeat;">
+</div>
+<div id="navcontainer">
+<ul id="navlist">
+<div><a href="index.html" class="withChild">Adatbázis alapismeretek</a></div>
+<div><a href="impresszum.html" class="withoutChild">Impresszum</a></div>
+<div><a href="bevezets.html" class="withoutChild">Bevezetés</a></div>
+<div><a href="1_adatbzisok.html" class="withChild">1. Adatbázisok</a></div>
+<div><a href="2_relcis_adatbzis.html" class="withChild">2. Relációs adatbázis</a></div>
+<div><a href="3_adatbzisbeli_szablyok.html" class="withChild">3. Adatbázisbeli szabályok</a></div>
+<div><a href="4_adatbzisspecifikci.html" class="withChild">4. Adatbázis-specifikáció</a></div>
+<div><a href="5_terminolgia.html" class="withoutChild">5. Terminológia</a></div>
+<div><a href="6_irodalomjegyzk.html" class="withoutChild">6. Irodalomjegyzék</a></div>
+<div><a href="7_gyakorlatok.html" class="withChild">7. Gyakorlatok</a></div>
+<div><a href="8_pldatr.html" class="withChild">8. Példatár</a></div>
+<div id="subnav" class="withoutChild">
+<div id="active" class="withoutChild">8.1. Tanfolyamszervezés</div>
+<div><a href="82_raktr.html" class="withoutChild">8.2. Raktár</a></div>
+<div><a href="83_szlloda.html" class="withoutChild">8.3. Szálloda</a></div>
+<div><a href="84_szervz.html" class="withoutChild">8.4. Szervíz</a></div>
+<div><a href="85_zldsges.html" class="withoutChild">8.5. Zöldséges</a></div>
+<div><a href="86_knyvtr.html" class="withoutChild">8.6. Könyvtár</a></div>
+</div>
+<div><a href="9_feladattr.html" class="withChild">9. Feladattár</a></div>
+</ul>
+</div>
+<div id="main">
+<div id="nodeDecoration"><p id="nodeTitle">8.1. Tanfolyamszervezés</p></div>
+<div class="objectivesIdevice" id="id75">
+<div class="iDevice emphasis1">
+<img alt="iDevice ikon"      class="iDevice_icon" src="icon_objectives.gif"/>
+<span class="iDeviceTitle"> </span>
+<div class="iDevice_inner">
+<div id="ta75_30_4" class="block" style="display:block"><p>
+<b>Ismertetés</b>
+</p>
+<p>
+Egy intézmény
+rövid tanfolyamokat hirdet. Néhány tanfolyamból több is indulhat (pl. havonta,
+ha van rá jelentkező). Az adott tanfolyamnak van egy oktatója, tandíja,
+kezdete, helyszíne és sok hallgatója; az azonos típusú tanfolyamoknak neve,
+óraszáma. A hallgatók azokból a jelentkezőkből lesznek, akik fizettek.
+Oktató is lehet valahol hallgató. Egy oktató az általa vállalt típusú
+tanfolyamokat különböző minősítéssel (a legutolsó tanfolyamának hallgatói véleménye alapján, 1-5 közötti érték) és tiszteletdíjért
+(korlátozott egész szám) tartja meg. 
+</p>
+<p>
+<b>Az adatbázis felállítása egyszerű: </b>Vannak az eszmei tanfolyamok (ezek a tanfolyam-típusok),
+melyekből konkrét tanfolyamszámokkal indítanak el képzéseket. A kiírás szerint
+a konkrét tanfolyamnak van tandíja, tehát ugyanaz a tanfolyam többe kerülhet
+szeptemberben, mint márciusban. 
+</p>
+<p>
+<b>TIPUS</b> {<u>típus</u>, megnevezés, óraszám}
+</p>
+<p>
+<b>TANFOLYAM</b> {<u>tanfszám</u>,
+típus, indul, kezdés, terem, tandíj, oktatókód}<br />
+Ha hallgatóról és oktatóról is ugyanazokat az adatokat
+tároljuk, akkor egy táblában is lehetnek. 
+</p>
+<p>
+<b>SZEMÉLY</b> {<u>kód</u>, név, cím, tel, végzettség}<br />
+Egy konkrét tanfolyamra sok hallgató jelentkezik, és egy
+hallgató több tanfolyamra is jelentkezhet:
+</p>
+<p>
+<b>JELENTKEZÉS</b> {<u>hallgatókód</u>, <u>tanfszám</u>, fizetve}<br />
+Mivel az oktató több tanfolyam-típust is vállalhat, letároljuk,
+miket tud oktatni. Ugyanakkor egy típusra több oktatónk is lehet.
+</p>
+<p>
+<b>OKTAT</b> {<u>oktatókód</u>,
+<u>típus</u>, minősítés, tiszteletdij} 
+</p>
+<p>
+A minősítést csak az első oktatást követően lehet kitölteni
+a hallgatói értékelést követően. Ebből a táblából lehet választott sorrend
+(minősítés szerint csökkenő/tiszteletdíj szerint növekvő) alapján oktatót
+keresni egy induló tanfolyam előtt.
+</p>
+<p>
+A kapcsolatok tisztán látszanak:
+</p>
+<p>
+<!--[if gte vml 1]>
+<![endif]--><img src="image006.jpg" v:shapes="_x0000_i1025" height="279" width="408" />
+</p>
+<p>
+(Minden nyíl <i>sokból</i>
+az <i>egybe</i> mutat a ráírt külső kulcson
+keresztül.) 
+</p>
+<p>
+Döntsük el, igazak-e az alábbi funkcionális függőségek: 
+</p>
+<p>
+(Útmutató:
+minden kulcs egyértelműen meghatározza saját táblája minden tulajdonságát.) 
+</p>
+<ol>
+	<li>{tanfszám} →
+	{megnev, óraszám}</li>
+	<li>{hallgkód} →
+	{végz}</li>
+	<li>{hallgkód,
+	tipus} →
+	{tandij}</li>
+	<li>{név,
+	cím, tanfszám} →
+	{fizetve}</li>
+	<li>{tanfszám,
+	hallgkód} →
+	{óraszám}</li>
+	<li>{tanfszám}
+	→
+	{tisztdij}</li>
+	<li>{indul,
+	kezdés,oktkód} →
+	{minősít} </li>
+</ol>
+<p>
+<b><a href="Pm_tanf1.pdf">Megoldás</a></b>
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+Az egyes táblákban hány mintasorral oldható meg a következő
+esemény rögzítése?
+</p>
+<p>
+„Rendes Elek tartja majd a jövő hétfőn induló MS Access
+kezdő tanfolyamot 8000 Ft
+óradíjért. A tanfolyam 30 órás, a B teremben lesz, tandíja 88000 Ft fejenként és van rá 5 jelentkező.&quot;<b> </b>
+</p>
+<p>
+<b><a href="Pm_tanf2.pdf">Megoldás</a></b>
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+Mi a feltétele az alábbi karbantartó funkciók elvégzésének?
+</p>
+<ul class="unIndentedList">
+	<li>
+	1 TANFOLYAM felvitele</li>
+	<li>
+	1 TÍPUS módosítása</li>
+	<li>
+	1 JELENTKEZÉS törlése </li>
+</ul>
+<p>
+<b><a href="Pm_tanf3.pdf">Megoldás</a></b>
+</p>
+
+</div><br/>
+</div>
+</div>
+</div>
+<div class="noprt" align="right"><a href="8_pldatr.html">&laquo; Előző</a> | <a href="82_raktr.html"> Következő &raquo;</a></div>
+</div>
+</div>
+</body></html>
